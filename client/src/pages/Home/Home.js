@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 import HomePhoto from "../../Images/food1.jpeg";
+// import food1 from "../../Images/food1.jpeg";
 
 const pages = ["Recipes", "Random"];
 const settings = ["Profile", "Create Recipes", "Favorites", "Logout"];
@@ -160,10 +161,10 @@ function Home() {
           </Toolbar>
         </Container>
       </AppBar>
-
-       <img src={HomePhoto} alt="react logo" />
-
-      
+      <span>
+        <img src={HomePhoto} alt="Food Banner" />
+        
+      </span>
     </>
   );
 }

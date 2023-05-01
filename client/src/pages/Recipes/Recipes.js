@@ -6,16 +6,27 @@ const ratingChanged = (newRating) => {
   console.log(newRating);
 };
 
-render(
-  <StarsRating
-    count={5}
-    onChange={ratingChanged}
-    size={24}
-    color2={"#ffd700"}
-  />,
+function Recipe() {
+  
+ return (
+    <div>
+      <h1>Recipe Page</h1> 
+      </div>
+ )
+ 
+  render(
+    <StarsRating
+      count={5}
+      onChange={ratingChanged}
+      size={24}
+      color2={"#ffd700"}
+    />,
+  
+    document.getElementById("where-to-render")
+  );
+)
+}
 
-  document.getElementById("where-to-render")
-);
 
 
 export default Recipe;

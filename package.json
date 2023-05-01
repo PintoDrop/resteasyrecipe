@@ -17,9 +17,10 @@
     "concurrently": "^7.6.0"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.8",
-    "@emotion/styled": "^11.10.8",
-    "@mui/material": "^5.12.2",
+
+    "@fontsource/roboto": "^4.5.8",
+
     "stars-rating": "^1.1.0"
+
   }
 }

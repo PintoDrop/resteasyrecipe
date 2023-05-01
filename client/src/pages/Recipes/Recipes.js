@@ -16,3 +16,6 @@ render(
 
   document.getElementById("where-to-render")
 );
+
+
+export default Recipe;

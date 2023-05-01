@@ -47,19 +47,20 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function Favorites() {
+// export default 
+function Favorites() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {/* user avatar goes here */}
-            R
+            {/* user avatar goes here */}R
           </Avatar>
         }
         action={
@@ -67,10 +68,10 @@ export default function Favorites() {
             <MoreVertIcon />
           </IconButton>
         }
+        // need to define models
         title={fav.recipe.title}
         // subheader="September 14, 2016"
       />
-      
       <CardMedia
         component="img"
         height="194"
@@ -104,13 +105,13 @@ export default function Favorites() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Directions</Typography>
+          <Typography paragraph>Method:</Typography>
           <Typography paragraph>
             {/* need directions model */}
             {fav.recipe.directions}
             {/* Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes.
-          </Typography> */}
+            aside for 10 minutes. */}
+          </Typography>
           <Typography paragraph>
             {/* Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
             medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
@@ -134,7 +135,6 @@ export default function Favorites() {
         </CardContent>
       </Collapse>
     </Card>
-    
   );
 }
 

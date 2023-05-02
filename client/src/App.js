@@ -10,6 +10,10 @@ import { setContext } from "@apollo/client/link/context";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+
+import Register from "./pages/Register";
+import CreateRecipe from "./pages/Create"
+
 // import Register from "./pages/Register";
 import Recipes from "./pages/Recipes";
 import Favorites from "./pages/Favorites";
@@ -66,7 +70,23 @@ function App() {
         
       </ApolloProvider>
 
-      <CssBaseline />
+
+    <ApolloProvider client={client}>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </div>
+      </Router>
+    </ApolloProvider>
+    
+    <CssBaseline />
+    <CreateRecipe />
+
+
     </>
   );
 }

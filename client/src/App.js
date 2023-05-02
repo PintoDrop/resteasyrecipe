@@ -6,18 +6,18 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 import Register from "./pages/Register";
-import CreateRecipe from "./pages/Create"
+import CreateRecipe from "./pages/Create";
 
 // import Register from "./pages/Register";
 import Recipes from "./pages/Recipes";
 import Favorites from "./pages/Favorites";
-import Random from "./pages/Random"
+import Random from "./pages/Random";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import SearchBar from "./pages/SearchBanner";
@@ -67,26 +67,22 @@ function App() {
         {pageState.random ? <Random /> : ""}
         {pageState.login ? <Login /> : ""}
         {pageState.favorites ? <Favorites /> : ""}
-        
       </ApolloProvider>
 
+      <ApolloProvider client={client}>
+        <Router>
+          <div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+          </div>
+        </Router>
+      </ApolloProvider>
 
-    <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </div>
-      </Router>
-    </ApolloProvider>
-    
-    <CssBaseline />
-    <CreateRecipe />
-
-
+      <CssBaseline />
+      <CreateRecipe />
     </>
   );
 }

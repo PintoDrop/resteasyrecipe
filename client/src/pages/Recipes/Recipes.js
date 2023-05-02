@@ -47,7 +47,7 @@ function Recipes() {
     setExpanded(!expanded);
   };
 
-  const [recipe] = useState([
+  const [recipes] = useState([
     {
       name: "Chicken Tacos",
       ingredients: "1/2 pound chicken, four bell peppers ",
@@ -58,18 +58,18 @@ function Recipes() {
 
       image: require("../../Images/chickenTacos.jpg"),
     },
-    {
-      name: "Apple Walnut Salad",
-      ingredients:
-        "Arugula, Belgian Endive, Apples, Dried Cranberries, Blue Cheese, Nuts, Maple Cinnamon Dressing  ",
-      instructions:
-        "1. Toast and chop the walnuts. 2.Whisk the dressing ingredients together. Stir in the apples. 3. Place the arugula and endive in a bowl. 4. Add part of the cranberries, cheese, and walnuts. 5. Transfer the apples to the bowl with the greens. Toss to coat. Continue to add the dressing until the salad is moist. 6.Finish with the remaining toppings and toss. ENJOY!",
-      region: "American",
-      cookTime: "28 minutes",
-      description: "Crisp salad",
+    // {
+    //   name: "Apple Walnut Salad",
+    //   ingredients:
+    //     "Arugula, Belgian Endive, Apples, Dried Cranberries, Blue Cheese, Nuts, Maple Cinnamon Dressing  ",
+    //   instructions:
+    //     "1. Toast and chop the walnuts. 2.Whisk the dressing ingredients together. Stir in the apples. 3. Place the arugula and endive in a bowl. 4. Add part of the cranberries, cheese, and walnuts. 5. Transfer the apples to the bowl with the greens. Toss to coat. Continue to add the dressing until the salad is moist. 6.Finish with the remaining toppings and toss. ENJOY!",
+    //   region: "American",
+    //   cookTime: "28 minutes",
+    //   description: "Crisp salad",
 
-      image: require("../../Images/appleWalnutSal.jpg"),
-    },
+    //   image: require("../../Images/appleWalnutSal.jpg"),
+    // },
   ]);
 
   return (
@@ -77,8 +77,7 @@ function Recipes() {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-             {/* user avatar goes here */}
-            R
+            {/* user avatar goes here */}R
           </Avatar>
         }
         action={
@@ -87,25 +86,36 @@ function Recipes() {
           </IconButton>
         }
         // need to define models
-        title={recipe.name}
+        title={recipes.name}
         // subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
         height="194"
-        image={recipe.image}
+        image={recipes.image}
         // alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-           {/* need description model */}
-           <h2>Description: </h2>
-          {recipe.description}
-          {/* This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like. */}
+          {/* need description model */}
+          {/* {recipes.map((recipe, idx) => ( */}
+          <h2>{recipes.description} </h2>
+          {recipes.description}
+
+          <h2>Directions: </h2>
+          {recipes.directions}
+
+          <h2>Ingredients: </h2>
+          {recipes.ingredients}
+
+          <h3>Cook time: </h3>
+          {recipes.cookTime}
+
+          <h3>Region: </h3>
+          {recipes.region}
         </Typography>
       </CardContent>
+       {/* ))} */}
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
@@ -126,15 +136,15 @@ function Recipes() {
         <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
-             {/* need directions model */}
-             <h2>Directions: </h2>
-            {recipe.directions}
+            {/* need directions model */}
+            <h2>Directions: </h2>
+            {recipes.directions}
             {/* Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
             aside for 10 minutes. */}
           </Typography>
           <Typography paragraph>
             <h2>Ingredients: </h2>
-            {recipe.ingredients}
+            {recipes.ingredients}
             {/* Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
             medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
             occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
@@ -145,7 +155,7 @@ function Recipes() {
           </Typography>
           <Typography paragraph>
             <h3>Cook time: </h3>
-            {recipe.cookTime}
+            {recipes.cookTime}
             {/* Add rice and stir very gently to distribute. Top with artichokes and
             peppers, and cook without stirring, until most of the liquid is absorbed,
             15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and
@@ -155,7 +165,7 @@ function Recipes() {
           </Typography>
           <Typography>
             <h3>Region: </h3>
-            {recipe.region}
+            {recipes.region}
             {/* Set aside off of the heat to let rest for 10 minutes, and then serve. */}
           </Typography>
         </CardContent>

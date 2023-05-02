@@ -16,6 +16,8 @@ import CreateRecipe from "./pages/Create"
 
 // import Register from "./pages/Register";
 import Recipes from "./pages/Recipes";
+import Favorites from "./pages/Favorites";
+import Random from "./pages/Random"
 
 import CssBaseline from "@mui/material/CssBaseline";
 import SearchBar from "./pages/SearchBanner";
@@ -44,6 +46,7 @@ function App() {
     recipes: true,
     random: false,
     login: false,
+    favorites: false,
   });
 
   return (
@@ -61,8 +64,10 @@ function App() {
         <Home pageState={pageState} setPageState={setPageState} />
         <SearchBar />
         {pageState.recipes ? <Recipes /> : ""}
-        {/* {pageState.random ? <Random /> : ""} */}
+        {pageState.random ? <Random /> : ""}
         {pageState.login ? <Login /> : ""}
+        {pageState.favorites ? <Favorites /> : ""}
+        
       </ApolloProvider>
 
 

@@ -16,6 +16,7 @@
 
 
 import * as React from 'react';
+import { useState } from "react";
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -54,6 +55,31 @@ function Favorites() {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+   const [fav] = useState([
+     {
+       name: "Chicken Tacos",
+       ingredients: "1/2 pound chicken, four bell peppers ",
+       instructions: "Cook chicken and heat tortillas",
+       region: "Meixcan",
+       cookTime: "30 minutes",
+       description: "Tacos made with pollo for a zesty punch",
+
+       image: require("../../Images/chickenTacos.jpg"),
+     },
+     {
+       name: "Apple Walnut Salad",
+       ingredients:
+         "Arugula, Belgian Endive, Apples, Dried Cranberries, Blue Cheese, Nuts, Maple Cinnamon Dressing  ",
+       instructions:
+         "1. Toast and chop the walnuts. 2.Whisk the dressing ingredients together. Stir in the apples. 3. Place the arugula and endive in a bowl. 4. Add part of the cranberries, cheese, and walnuts. 5. Transfer the apples to the bowl with the greens. Toss to coat. Continue to add the dressing until the salad is moist. 6.Finish with the remaining toppings and toss. ENJOY!",
+       region: "American",
+       cookTime: "28 minutes",
+       description: "Crisp salad",
+
+       image: require("../../Images/appleWalnutSal.jpg"),
+     },
+   ]);
 
   return (
     <Card sx={{ maxWidth: 345 }}>

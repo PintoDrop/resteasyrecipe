@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Recipes from "./pages/Recipes";
 
 import CssBaseline from "@mui/material/CssBaseline";
+import SearchBar from "./pages/SearchBanner";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -35,7 +36,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-
   const [pageState, setPageState] = useState({
     recipes: true,
     random: false,
@@ -55,6 +55,7 @@ function App() {
           </div>
         </Router> */}
         <Home pageState={pageState} setPageState={setPageState} />
+        <SearchBar />
         {pageState.recipes ? <Recipes /> : ""}
         {/* {pageState.random ? <Random /> : ""} */}
         {pageState.login ? <Login /> : ""}

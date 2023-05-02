@@ -6,7 +6,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -67,20 +67,9 @@ function App() {
         {pageState.random ? <Random /> : ""}
         {pageState.login ? <Login /> : ""}
         {pageState.favorites ? <Favorites /> : ""}
+        {pageState.create ? <CreateRecipe /> : ""}
         
-      </ApolloProvider>
 
-
-    <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </div>
-      </Router>
     </ApolloProvider>
     
     <CssBaseline />

@@ -23,6 +23,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+ 
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -94,7 +95,7 @@ function Recipes() {
             component="img"
             height="194"
             // needs to be src not image?
-            src={recipe.image}
+            image={recipe.image}
             // alt="Paella dish"
           />
           <CardContent>

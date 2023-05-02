@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -5,11 +6,12 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
+// import Register from "./pages/Register";
+import Recipes from "./pages/Recipes";
 
 import CssBaseline from "@mui/material/CssBaseline";
 
@@ -33,23 +35,32 @@ const client = new ApolloClient({
 });
 
 function App() {
+
+  const [pageState, setPageState] = useState({
+    recipes: true,
+    random: false,
+    login: false,
+  });
+
   return (
     <>
+      <ApolloProvider client={client}>
+        {/* <Router>
+          <div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+          </div>
+        </Router> */}
+        <Home pageState={pageState} setPageState={setPageState} />
+        {pageState.recipes ? <Recipes /> : ""}
+        {/* {pageState.random ? <Random /> : ""} */}
+        {pageState.login ? <Login /> : ""}
+      </ApolloProvider>
 
-    <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </div>
-      </Router>
-    </ApolloProvider>
-    
-    <CssBaseline />
-
+      <CssBaseline />
     </>
   );
 }

@@ -14,8 +14,9 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 import HomePhoto from "../../Images/food1.jpeg";
+import Login from "../Login/Login"
 
-const pages = ["Recipes", "Random"];
+const pages = ["Recipes", "Random", "Login/Register"];
 const settings = ["Profile", "Create Recipes", "Favorites", "Logout"];
 
 function Home() {
@@ -163,7 +164,7 @@ function Home() {
 
        <img src={HomePhoto} alt="react logo" />
 
-      
+      <Login />
     </>
   );
 }

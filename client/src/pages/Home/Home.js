@@ -62,6 +62,10 @@ function Home() {
               Rest Easy Recipes
             </Typography>
 
+            {/* <Button href="/recipes" variant="contained">
+              Recipes
+            </Button> */}
+
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
@@ -92,9 +96,11 @@ function Home() {
                 }}
               >
                 {pages.map((page) => (
+                  
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
+                  
                 ))}
               </Menu>
             </Box>
@@ -130,8 +136,9 @@ function Home() {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+              <Tooltip title="Options">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  {/* need ${user} and avatar images, avater letter changes with name */}
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
@@ -163,7 +170,6 @@ function Home() {
       </AppBar>
       <span>
         <img src={HomePhoto} alt="Food Banner" />
-        
       </span>
     </>
   );

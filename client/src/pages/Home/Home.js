@@ -12,11 +12,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
-
-import HomePhoto from "../../Images/food1.jpeg";
-
-import Login from "../Login/Login"
-
+import Login from "../Login/Login";
+import SearchBar from "./HomeBanner";
 
 const pages = ["Recipes", "Random", "Login/Register"];
 const settings = ["Profile", "Create Recipes", "Favorites", "Logout"];
@@ -98,11 +95,9 @@ function Home() {
                 }}
               >
                 {pages.map((page) => (
-                  
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
-                  
                 ))}
               </Menu>
             </Box>
@@ -170,7 +165,9 @@ function Home() {
           </Toolbar>
         </Container>
       </AppBar>
-       <img src={HomePhoto} alt="react logo" />
+
+      <SearchBar />
+
       <Login />
     </>
   );

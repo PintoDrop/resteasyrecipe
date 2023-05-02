@@ -17,6 +17,8 @@ import HomePhoto from "../../Images/food1.jpeg";
 
 // import Login from "../Login/Login"
 
+import Favorites from "../Favorites/Favorites";
+
 
 const pages = ["Recipes", "Random", "Login/Register"];
 const settings = ["Profile", "Create Recipes", "Favorites", "Logout"];
@@ -50,6 +52,9 @@ function Home({pageState, setPageState}) {
   const handleOpenLogin = () => {
     setPageState({...pageState, recipes: false, random: false, login: true})
   };
+  // const handleOpenFavorites = () => {
+  //   setPageState({...pageState, recipes: false, random: false, login: false, favorites: true})
+  // };
 
 
   return (
@@ -206,14 +211,19 @@ function Home({pageState, setPageState}) {
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
-                ))}
+                  // <MenuItem  onClick={handleOpenFavorites}>
+                  //   <Typography textAlign="center">Favorites</Typography>
+                  // </MenuItem>
+                ))} 
               </Menu>
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
-       <img src={HomePhoto} alt="react logo" />
+       {/* <img src={HomePhoto} alt="react logo" /> */}
       {/* <Login /> */}
+      {/* <Favorites /> */}
+
     </>
   );
 }

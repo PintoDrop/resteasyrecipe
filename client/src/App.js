@@ -12,6 +12,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 // import Register from "./pages/Register";
 import Recipes from "./pages/Recipes";
+import Favorites from "./pages/Favorites";
+import Random from "./pages/Random"
 
 import CssBaseline from "@mui/material/CssBaseline";
 
@@ -40,6 +42,7 @@ function App() {
     recipes: true,
     random: false,
     login: false,
+    favorites: false,
   });
 
   return (
@@ -56,8 +59,10 @@ function App() {
         </Router> */}
         <Home pageState={pageState} setPageState={setPageState} />
         {pageState.recipes ? <Recipes /> : ""}
-        {/* {pageState.random ? <Random /> : ""} */}
+        {pageState.random ? <Random /> : ""}
         {pageState.login ? <Login /> : ""}
+        {pageState.favorites ? <Favorites /> : ""}
+        
       </ApolloProvider>
 
       <CssBaseline />

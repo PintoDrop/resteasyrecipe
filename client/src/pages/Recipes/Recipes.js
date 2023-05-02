@@ -55,7 +55,6 @@ function Recipes() {
       region: "Meixcan",
       cookTime: "30 minutes",
       description: "Tacos made with pollo for a zesty punch",
-
       image: require("../../Images/chickenTacos.jpg"),
     },
     {

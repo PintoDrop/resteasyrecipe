@@ -15,13 +15,13 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 import HomePhoto from "../../Images/food1.jpeg";
 
-import Login from "../Login/Login"
+// import Login from "../Login/Login"
 
 
 const pages = ["Recipes", "Random", "Login/Register"];
 const settings = ["Profile", "Create Recipes", "Favorites", "Logout"];
 
-function Home() {
+function Home({pageState, setPageState}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -39,6 +39,18 @@ function Home() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleOpenRecipes = () => {
+    setPageState({...pageState, recipes: true, random: false, login: false})
+  };
+
+  const handleOpenRandom = () => {
+    setPageState({...pageState, recipes: false, random: true, login: false})
+  };
+  const handleOpenLogin = () => {
+    setPageState({...pageState, recipes: false, random: false, login: true})
+  };
+
 
   return (
     <>
@@ -97,13 +109,22 @@ function Home() {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                {pages.map((page) => (
+                {/* {pages.map((page) => ( */}
                   
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  {/* <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
+                  </MenuItem> */}
+                  <MenuItem  onClick={handleOpenRecipes}>
+                    <Typography textAlign="center">Recipes</Typography>
+                  </MenuItem>
+                  <MenuItem  onClick={handleOpenRandom}>
+                    <Typography textAlign="center">Random</Typography>
+                  </MenuItem>
+                  <MenuItem  onClick={handleOpenLogin}>
+                    <Typography textAlign="center">Login/Register</Typography>
                   </MenuItem>
                   
-                ))}
+                {/* ))} */}
               </Menu>
             </Box>
             <MenuBookIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
@@ -126,15 +147,36 @@ function Home() {
               Rest Easy Recipes
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {page}
+                </Button> */}
+                <Button
+                  // key={page}
+                  onClick={handleOpenRecipes}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Recipes
                 </Button>
-              ))}
+                <Button
+                  // key={page}
+                  onClick={handleOpenRandom}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Random
+                </Button>
+                <Button
+                  // key={page}
+                  onClick={handleOpenLogin}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Login/Register
+                </Button>
+              {/* ))} */}
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
@@ -171,7 +213,7 @@ function Home() {
         </Container>
       </AppBar>
        <img src={HomePhoto} alt="react logo" />
-      <Login />
+      {/* <Login /> */}
     </>
   );
 }

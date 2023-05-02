@@ -12,7 +12,13 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
-// import Login from "../Login/Login";
+
+import HomePhoto from "../../Images/food1.jpeg";
+
+// import Login from "../Login/Login"
+
+import Favorites from "../Favorites/Favorites";
+
 
 const pages = ["Recipes", "Random", "Login/Register"];
 const settings = ["Profile", "Create Recipe", "Favorites", "Logout"];
@@ -46,6 +52,9 @@ function Home({ pageState, setPageState }) {
   const handleOpenLogin = () => {
     setPageState({ ...pageState, recipes: false, random: false, login: true });
   };
+  // const handleOpenFavorites = () => {
+  //   setPageState({...pageState, recipes: false, random: false, login: false, favorites: true})
+  // };
 
   return (
     <>
@@ -201,14 +210,18 @@ function Home({ pageState, setPageState }) {
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
-                ))}
+                  // <MenuItem  onClick={handleOpenFavorites}>
+                  //   <Typography textAlign="center">Favorites</Typography>
+                  // </MenuItem>
+                ))} 
               </Menu>
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
-
       {/* <Login /> */}
+      {/* <Favorites /> */}
+
     </>
   );
 }

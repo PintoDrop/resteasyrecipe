@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Recipe } = require("../models");
 const { signToken } = require("../utils/auth.js");
 
 const resolvers = {
@@ -33,6 +33,21 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    removeRecipe: async (parent, { id }) => {
+      const recipe = await Recipe.findByIdAndDelete(id);
+      return ({ example: "It worked" })
+    },
+    saveRecipe: async (parent, { recipeData }, context) => {
+      if (context.user) {
+        const recipe = await Recipe.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedRecipes: recipeData } },
+          { new: true }
+          );
+          return recipe;
+
+        }
+    }
   },
 };
 

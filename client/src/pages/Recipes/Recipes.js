@@ -7,6 +7,7 @@
 // };
 
 import * as React from 'react';
+import { useState } from "react";
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -46,6 +47,19 @@ function Recipes() {
     setExpanded(!expanded);
   };
 
+  const [recipe] = useState([
+    {
+      name: "Chicken Tacos",
+      ingredients: "1/2 pound chicken, four bell peppers ",
+      instructions: "Cook chicken and heat tortillas",
+      region: "Meixcan",
+      cookTime: "30 minutes",
+      description: "Tacos made with pollo for a zesty punch",
+
+      image: require("../images/chickenTacos.jpg"),
+    }
+  ])
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -61,7 +75,7 @@ function Recipes() {
           </IconButton>
         }
         // need to define models
-        title={recipe.title}
+        title={recipe.name}
         // subheader="September 14, 2016"
       />
       <CardMedia
@@ -73,6 +87,7 @@ function Recipes() {
       <CardContent>
         <Typography variant="body2" color="text.secondary">
            {/* need description model */}
+           <h2>Description: </h2>
           {recipe.description}
           {/* This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the mussels,
@@ -100,11 +115,14 @@ function Recipes() {
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
              {/* need directions model */}
+             <h2>Directions: </h2>
             {recipe.directions}
             {/* Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
             aside for 10 minutes. */}
           </Typography>
           <Typography paragraph>
+            <h2>Ingredients: </h2>
+            {recipe.ingredients}
             {/* Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
             medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
             occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
@@ -114,6 +132,8 @@ function Recipes() {
             saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil. */}
           </Typography>
           <Typography paragraph>
+            <h3>Cook time: </h3>
+            {recipe.cookTime}
             {/* Add rice and stir very gently to distribute. Top with artichokes and
             peppers, and cook without stirring, until most of the liquid is absorbed,
             15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and
@@ -122,6 +142,8 @@ function Recipes() {
             minutes more. (Discard any mussels that don&apos;t open.) */}
           </Typography>
           <Typography>
+            <h3>Region: </h3>
+            {recipe.region}
             {/* Set aside off of the heat to let rest for 10 minutes, and then serve. */}
           </Typography>
         </CardContent>

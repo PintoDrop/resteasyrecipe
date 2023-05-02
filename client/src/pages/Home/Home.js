@@ -21,9 +21,9 @@ import Favorites from "../Favorites/Favorites";
 
 
 const pages = ["Recipes", "Random", "Login/Register"];
-const settings = ["Profile", "Create Recipes", "Favorites", "Logout"];
+const settings = ["Profile", "Create Recipe", "Favorites", "Logout"];
 
-function Home({pageState, setPageState}) {
+function Home({ pageState, setPageState }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -43,19 +43,18 @@ function Home({pageState, setPageState}) {
   };
 
   const handleOpenRecipes = () => {
-    setPageState({...pageState, recipes: true, random: false, login: false})
+    setPageState({ ...pageState, recipes: true, random: false, login: false });
   };
 
   const handleOpenRandom = () => {
-    setPageState({...pageState, recipes: false, random: true, login: false})
+    setPageState({ ...pageState, recipes: false, random: true, login: false });
   };
   const handleOpenLogin = () => {
-    setPageState({...pageState, recipes: false, random: false, login: true})
+    setPageState({ ...pageState, recipes: false, random: false, login: true });
   };
   // const handleOpenFavorites = () => {
   //   setPageState({...pageState, recipes: false, random: false, login: false, favorites: true})
   // };
-
 
   return (
     <>
@@ -115,20 +114,20 @@ function Home({pageState, setPageState}) {
                 }}
               >
                 {/* {pages.map((page) => ( */}
-                  
-                  {/* <MenuItem key={page} onClick={handleCloseNavMenu}>
+
+                {/* <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem> */}
-                  <MenuItem  onClick={handleOpenRecipes}>
-                    <Typography textAlign="center">Recipes</Typography>
-                  </MenuItem>
-                  <MenuItem  onClick={handleOpenRandom}>
-                    <Typography textAlign="center">Random</Typography>
-                  </MenuItem>
-                  <MenuItem  onClick={handleOpenLogin}>
-                    <Typography textAlign="center">Login/Register</Typography>
-                  </MenuItem>
-                  
+                <MenuItem onClick={handleOpenRecipes}>
+                  <Typography textAlign="center">Recipes</Typography>
+                </MenuItem>
+                <MenuItem onClick={handleOpenRandom}>
+                  <Typography textAlign="center">Random</Typography>
+                </MenuItem>
+                <MenuItem onClick={handleOpenLogin}>
+                  <Typography textAlign="center">Login/Register</Typography>
+                </MenuItem>
+
                 {/* ))} */}
               </Menu>
             </Box>
@@ -160,27 +159,27 @@ function Home({pageState, setPageState}) {
                 >
                   {page}
                 </Button> */}
-                <Button
-                  // key={page}
-                  onClick={handleOpenRecipes}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Recipes
-                </Button>
-                <Button
-                  // key={page}
-                  onClick={handleOpenRandom}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Random
-                </Button>
-                <Button
-                  // key={page}
-                  onClick={handleOpenLogin}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Login/Register
-                </Button>
+              <Button
+                // key={page}
+                onClick={handleOpenRecipes}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Recipes
+              </Button>
+              <Button
+                // key={page}
+                onClick={handleOpenRandom}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Random
+              </Button>
+              <Button
+                // key={page}
+                onClick={handleOpenLogin}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Login/Register
+              </Button>
               {/* ))} */}
             </Box>
 
@@ -220,7 +219,6 @@ function Home({pageState, setPageState}) {
           </Toolbar>
         </Container>
       </AppBar>
-       {/* <img src={HomePhoto} alt="react logo" /> */}
       {/* <Login /> */}
       {/* <Favorites /> */}
 

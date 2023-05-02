@@ -67,22 +67,15 @@ function App() {
         {pageState.random ? <Random /> : ""}
         {pageState.login ? <Login /> : ""}
         {pageState.favorites ? <Favorites /> : ""}
-      </ApolloProvider>
+        {pageState.create ? <CreateRecipe /> : ""}
+        
 
-      <ApolloProvider client={client}>
-        <Router>
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Routes>
-          </div>
-        </Router>
-      </ApolloProvider>
+    </ApolloProvider>
+    
+    <CssBaseline />
+    <CreateRecipe />
 
-      <CssBaseline />
-      <CreateRecipe />
+
     </>
   );
 }

@@ -57,7 +57,8 @@ function Recipes() {
       cookTime: "30 minutes",
       description: "Tacos made with pollo for a zesty punch",
 
-      image: require("../../Images/chickTacos.jpg"),
+      image: require("../../Images/chickenTacos.jpg"),
+
     },
     {
       name: "Apple Walnut Salad",

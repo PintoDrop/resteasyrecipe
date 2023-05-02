@@ -11,6 +11,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
+import CssBaseline from "@mui/material/CssBaseline";
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -32,6 +34,8 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    <>
+
     <ApolloProvider client={client}>
       <Router>
         <div>
@@ -43,6 +47,10 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+    
+    <CssBaseline />
+
+    </>
   );
 }
 

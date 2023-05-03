@@ -62,6 +62,8 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { FormControl, FormLabel } from "@mui/material";
+// import { Form } from "react-router-dom";
 
 
 export const CreateRecipe = () => {
@@ -81,7 +83,11 @@ export const CreateRecipe = () => {
 
   return (
     <div className="create-recipe">
-      <h2>Create Recipe</h2>
+      <FormControl>
+        <FormLabel><h2>Create A Recipe</h2></FormLabel>
+        
+
+      {/* <h2>Create Recipe</h2> */}
       <form style={{ display: "flex", flexDirection: "row" }}>
         {/* <label htmlFor="name">Name</label> */}
 
@@ -98,7 +104,7 @@ export const CreateRecipe = () => {
           label="Name"
           variant="outlined"
           onChange={handleChange}
-        />
+          />
 
         {/* <input type="text" id="name" onChange={handleChange} /> */}
 
@@ -109,7 +115,7 @@ export const CreateRecipe = () => {
           label="Region"
           variant="outlined"
           onChange={handleChange}
-        />
+          />
 
         {/* <input type="text" id="name" onChange={handleChange} /> */}
 
@@ -120,7 +126,7 @@ export const CreateRecipe = () => {
           label="Description"
           variant="outlined"
           onChange={handleChange}
-        />
+          />
 
         {/* <textarea
           id="description"
@@ -135,7 +141,7 @@ export const CreateRecipe = () => {
           label="Cook Time (Minutes)"
           variant="outlined"
           onChange={handleChange}
-        />
+          />
 
         {/* <input type="number" id="cookTime" onChange={handleChange}></input> */}
 
@@ -146,7 +152,7 @@ export const CreateRecipe = () => {
           label="Ingredients"
           variant="outlined"
           onChange={handleChange}
-        />
+          />
 
         {/* <textarea
           id="ingredients"
@@ -161,7 +167,7 @@ export const CreateRecipe = () => {
           label="Instructions"
           variant="outlined"
           onChange={handleChange}
-        />
+          />
 
         {/* <textarea
           id="instructions"
@@ -173,6 +179,7 @@ export const CreateRecipe = () => {
 
       <Button variant="contained" type="on submit">Submit Recipe</Button>
        </Stack>
+        </FormControl>
     </div>
   );
 };

@@ -23,6 +23,8 @@ Users can log in or sign up and find recipes they are able to try on their own. 
 
 ## Installation
 
+After cloning the repo you will need to use npm i to install stars-ratings, express, react and other needed npms.
+
 ## License
 
 MIT
@@ -69,4 +71,4 @@ GIVEN a recipe blog
 
 ## Screen-Shots
 
-![Home Page Screenshot]()
+![Home Page Screenshot](./src/Images/wirefram.JPG)

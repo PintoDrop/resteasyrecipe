@@ -3,10 +3,10 @@ require("dotenv").config();
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const { join } = require("path");
-const { authMiddleware } = require("./server/utils/auth.js");
+const { authMiddleware } = require("./utils/auth.js");
 
-const { typeDefs, resolvers } = require("./server/schemas/index.js");
-const db = require("./server/config/index.js");
+const { typeDefs, resolvers } = require("./schemas/index.js");
+const db = require("./config/index.js");
 
 const PORT = process.env.PORT || 3001;
 const app = express();

@@ -13,7 +13,7 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
+// import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import StarsRating from "stars-rating";
@@ -117,6 +117,7 @@ function Recipes() {
                 <p>{recipe.region}</p> */}
                 <StarsRating
                   count={5}
+                  // value={rating}
                   onChange={handleRatingChange}
                   size={24}
                   color2={"#ffd700"}

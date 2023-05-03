@@ -89,4 +89,5 @@ Favorite button
 login in
 register/sign up
 random recipe
+logout button
  -->

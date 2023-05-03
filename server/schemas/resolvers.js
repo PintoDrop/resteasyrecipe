@@ -10,11 +10,8 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    recipes: async (parent, args, context) => {
-      if (context.user) {
-        return Recipe.find({ _id: context.user._id });
-      }
-      throw new AuthenticationError("You need to be logged in!");
+    recipes: async () => {
+      return Recipe.find();
     },
   },
   Mutation: {

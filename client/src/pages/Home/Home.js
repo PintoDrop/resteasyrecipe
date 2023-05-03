@@ -37,20 +37,20 @@ function Home({ pageState, setPageState }) {
   };
 
   const handleOpenRecipes = () => {
-    setPageState({ ...pageState, recipes: true, random: false, login: false, create: false });
+    setPageState({ ...pageState, recipes: true, random: false, login: false, create: false, favorites: false });
   };
 
   const handleOpenRandom = () => {
-    setPageState({ ...pageState, recipes: false, random: true, login: false, create: false });
+    setPageState({ ...pageState, recipes: false, random: true, login: false, create: false, favorites: false });
   };
   const handleOpenLogin = () => {
-    setPageState({ ...pageState, recipes: false, random: false, login: true, create: false });
+    setPageState({ ...pageState, recipes: false, random: false, login: true, create: false, favorites: false, search: false });
   };
   const handleOpenFavorites = () => {
-    setPageState({...pageState, recipes: false, random: false, login: false, favorites: true})
+    setPageState({...pageState, recipes: false, random: false, login: false, favorites: true, create: false})
   };
   const handleOpenCreateRecipe = () => {
-    setPageState({...pageState, recipes: false, random: false, login: false, create: true})
+    setPageState({...pageState, recipes: false, random: false, login: false, create: true, favorites: false})
   }
 
   return (

@@ -1,10 +1,3 @@
-// import StarsRating from "stars-rating";
-// import React from "react";
-// import { render } from "react-dom";
-
-// const ratingChanged = (newRating) => {
-//   console.log(newRating);
-// };
 
 import * as React from 'react';
 import { useState } from "react";
@@ -23,6 +16,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import StarsRating from "stars-rating";
 
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -40,10 +34,16 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
+
 // export default 
 function Recipes() {
   const [expanded, setExpanded] = React.useState(false);
+  const [rating, setRating] = useState(0);
   
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -73,124 +73,99 @@ function Recipes() {
       image: require("../../Images/appleWalnutSal.jpg"),
     },
   ]);
-  
-  // render(<StarsRating
-  //   count={5}
-  //   onChange={ratingChanged}
-  //   size={24}
-  //   color2={'#ffd700'} />,
-    
-  //   document.getElementById('where-to-render')
-  //   );
+
     
     return (
       <div style={{ display: "flex", flexDirection: "row" }}>
-      {recipes.map((recipe) => (
-        <Card sx={{ maxWidth: 345 }} key={recipe.name}>
-          <CardHeader
-            avatar={
-              <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                {/* user avatar goes here */}R
-              </Avatar>
-            }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={recipe.name}
-            // subheader="September 14, 2016"
+        {recipes.map((recipe) => (
+          <Card sx={{ maxWidth: 345 }} key={recipe.name}>
+            <CardHeader
+              avatar={
+                <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                  {/* user avatar goes here */}R
+                </Avatar>
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
+              }
+              title={recipe.name}
             />
-          <CardMedia
-            component="img"
-            height="194"
-            // needs to be src not image?
-            image={recipe.image}
-            // alt="Paella dish"
+            <CardMedia
+              component="img"
+              height="194"
+              // needs to be src not image?
+              image={recipe.image}
+              // alt="Paella dish"
             />
-          <CardContent>
-            <Typography variant="body2" color="text.secondary">
-              <h2>Description: </h2>
-              <p>{recipe.description}</p>
-
-              <h2>Directions: </h2>
-              <p>{recipe.instructions}</p>
-
-              <h2>Ingredients: </h2>
-              <p>{recipe.ingredients}</p>
-
-              <h3>Cook time: </h3>
-              <p>{recipe.cookTime}</p>
-
-              <h3>Region: </h3>
-              <p>{recipe.region}</p>
-            </Typography>
-          </CardContent>
-
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
-            <ExpandMore
-              expand={expanded}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </ExpandMore>
-          </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>Method:</Typography>
-              <Typography paragraph>
-                <h2>Directions: </h2>
-                {recipe.directions}
-              </Typography>
-              <Typography paragraph>
+              <Typography variant="body2" color="text.secondary">
+                <h2>Description: </h2>
+                <p>{recipe.description}</p>
+
+                {/* <h2>Directions: </h2>
+                <p>{recipe.instructions}</p>
+
                 <h2>Ingredients: </h2>
-                {recipe.ingredients}
-              </Typography>
-              <Typography paragraph>
+                <p>{recipe.ingredients}</p>
+
                 <h3>Cook time: </h3>
-                {recipe.cookTime}
-              </Typography>
-              <Typography>
+                <p>{recipe.cookTime}</p>
+
                 <h3>Region: </h3>
-                {recipe.region}
+                <p>{recipe.region}</p> */}
+                <StarsRating
+                  count={5}
+                  onChange={handleRatingChange}
+                  size={24}
+                  color2={"#ffd700"}
+                />
               </Typography>
             </CardContent>
-          </Collapse>
-        </Card>
-      ))}
-    </div>
-  );
+
+            <CardActions disableSpacing>
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+              {/* <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton> */}
+              <ExpandMore
+                expand={expanded}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </ExpandMore>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+              <CardContent>
+                {/* <Typography paragraph>Method:</Typography> */}
+                <Typography paragraph>
+                  <h3>Directions: </h3>
+                  {recipe.instructions}
+                </Typography>
+                <Typography paragraph>
+                  <h3>Ingredients: </h3>
+                  {recipe.ingredients}
+                </Typography>
+                <Typography paragraph>
+                  <h3>Cook time: </h3>
+                  {recipe.cookTime}
+                </Typography>
+                <Typography>
+                  <h3>Region: </h3>
+                  {recipe.region}
+                </Typography>
+              </CardContent>
+            </Collapse>
+          </Card>
+        ))}
+      </div>
+    );
 }
 
-// function Recipe() {
-  
-  //  return (
-    //     <div>
-    //       <h1>Recipe Page</h1> 
-    //       </div>
-    //  )
-    
-    
-    
-    // render(
-    //   <StarsRating
-    //     count={5}
-    //     onChange={ratingChanged}
-    //     size={24}
-    //     color2={"#ffd700"}
-    //     />,
-        
-    //     document.getElementById("where-to-render")
-    //     )
-    // );
-    // }
 
 export default Recipes;

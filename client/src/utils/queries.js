@@ -9,3 +9,18 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_RECIPE = gql`
+  query recipes {
+    recipe{
+      _id
+      name
+      ingredients
+      instructions
+      region
+      cookTime
+      image
+      description
+    }
+  }
+`;

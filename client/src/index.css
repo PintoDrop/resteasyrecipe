@@ -1,5 +1,16 @@
 
 
-header: {
+header {
   backgroundImage: `url(${HomePhoto})`,
 }
+
+.h2 {
+  text-align: center;
+}
+
+/* .create-recipe-input {
+  padding: 20px;
+
+} */
+
+

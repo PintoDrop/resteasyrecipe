@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Register from "../Register/Register"
@@ -7,6 +7,8 @@ import InputLabel from "@mui/material/InputLabel";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+import { useFormControl } from "@mui/material/FormControl";
+
 
 import Auth from "../../utils/auth.js";
 
@@ -15,9 +17,20 @@ function Login() {
     email: "",
     password: "",
   });
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
-
+  
+  
   const [Login, { error, data }] = useMutation(LOGIN_USER);
+  
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
+    }
+  }, [error]);
 
   const handleInputChange = ({ target: { name, value } }) => {
     setFormState({ ...formState, [name]: value });
@@ -26,15 +39,28 @@ function Login() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
     try {
       const { data } = await Login({
         variables: { ...formState },
       });
 
+      console.log(data);
       Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
     }
+
+    setFormState({
+      email: '',
+      password: '',
+    });
+
   };
   return (
     <>

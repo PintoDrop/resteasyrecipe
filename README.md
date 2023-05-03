@@ -78,10 +78,9 @@ GIVEN a recipe blog
 getting images to appear on recipe cards - done
 
 adding seeded data to recipe cards?
+
 making a rating for individual recipe (need login info?)
-
 making a random recipe button
-
 
 
 need:

@@ -1,4 +1,4 @@
-const db = require("../config");
+const db = require("../config/index");
 const { User, Recipe } = require("../models");
 
 const UserData = require("./userData.json");
@@ -6,6 +6,8 @@ const RecipeData = require("./recipeData.json");
 
 db.once("open", async () => {
   //clean the database
+try
+  {
   await Recipe.deleteMany({});
   await User.deleteMany({});
 
@@ -18,4 +20,7 @@ db.once("open", async () => {
 
   console.log("Users seeded!");
   process.exit(0);
+ } catch (err) {
+    throw err;
+ }
 });

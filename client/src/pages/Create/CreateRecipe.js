@@ -89,46 +89,45 @@ export const CreateRecipe = () => {
         <Grid container justifyContent="center">
           <h2>Create A Recipe</h2>
         </Grid>
-        
+
         <Grid
           fullWidth
-          xs={12}
+          // xs={12}
           container
           direction="column"
-          // alignItems="center"
-          justifyContent="space-between"
+          alignItems="center"
+          // justifyContent="space-between"
           my={2}
 
           // pb={6}
           // columns={{ xs: 4, sm: 8, md: 12 }}
         >
-
           <form className="create-recipe-input">
 
-            <Grid my={2}>
-              <TextField
-                //  item p={6}
-                fullWidth
-                id="outlined-basic"
-                label="Name"
-                variant="outlined"
-                onChange={handleChange}
-                multiline
-              />
+            <Grid xs={12} my={2}>
+            <TextField
+              //  item p={6}
+              fullWidth
+              id="outlined-basic"
+              label="Name"
+              variant="outlined"
+              onChange={handleChange}
+              multiline
+            />
             </Grid>
 
-            <Grid  my={2}>
-              <TextField
-                fullWidth
-                id="outlined-basic"
-                label="Region"
-                variant="outlined"
-                onChange={handleChange}
-                multiline
-              />
+            <Grid xs={12} my={2}>
+            <TextField
+              fullWidth
+              id="outlined-basic"
+              label="Region"
+              variant="outlined"
+              onChange={handleChange}
+              multiline
+            />
             </Grid>
 
-            <Grid my={2}>
+            <Grid xs={12} my={2}>
               <TextField
                 fullWidth
                 id="outlined-basic"
@@ -141,20 +140,20 @@ export const CreateRecipe = () => {
 
             {/* <Grid pb={3}> */}
 
-            <Grid my={2}>
-
-            <TextField
-              fullWidth
-              id="outlined-basic"
-              label="Cook Time (Minutes)"
-              variant="outlined"
-              onChange={handleChange}
-              multiline
-            />
-            </Grid>
+            
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Cook Time (Minutes)"
+                variant="outlined"
+                onChange={handleChange}
+                multiline
+              />
+            
 
             {/* <Grid xs={12} my={2}> */}
 
+            <Grid xs={12} my={2}>
             <TextField
               fullWidth
               label="Ingredients"
@@ -163,7 +162,9 @@ export const CreateRecipe = () => {
               onChange={handleChange}
               multiline
             />
-            {/* </Grid> */}
+            </Grid>
+
+            <Grid xs={12} my={2}>
 
             <TextField
               fullWidth
@@ -173,7 +174,7 @@ export const CreateRecipe = () => {
               onChange={handleChange}
               multiline
             />
-
+            </Grid>
           </form>
         </Grid>
         <Stack spacing={2} direction="row" justifyContent="center">

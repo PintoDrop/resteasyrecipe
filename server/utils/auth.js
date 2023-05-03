@@ -27,4 +27,8 @@ module.exports = {
     const payload = { email, name, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: "2h" });
   },
+  logout: function (res) {
+    res.clearCookie("token");
+    return true;
+  }
 };

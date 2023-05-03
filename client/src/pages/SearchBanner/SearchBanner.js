@@ -8,6 +8,8 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 
+
+
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -44,7 +46,7 @@ function SearchBar() {
               Search
             </Button>
           </Grid>
-          <Grid ></Grid>
+          
         </Grid>
       </Grid>
       ;

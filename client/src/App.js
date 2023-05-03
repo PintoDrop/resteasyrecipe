@@ -46,8 +46,9 @@ function App() {
     recipes: true,
     random: false,
     login: false,
-    favorites: false,
     create: false,
+    favorites: false,
+    search: true,
   });
 
   return (
@@ -63,12 +64,12 @@ function App() {
           </div>
         </Router> */}
         <Home pageState={pageState} setPageState={setPageState} />
-        <SearchBar />
+        {pageState.search ? <SearchBar /> : ""}
         {pageState.recipes ? <Recipes /> : ""}
         {pageState.random ? <Random /> : ""}
         {pageState.login ? <Login /> : ""}
-        {pageState.favorites ? <Favorites /> : ""}
         {pageState.create ? <CreateRecipe /> : ""}
+        {pageState.favorites ? <Favorites /> : ""}
         
         
 

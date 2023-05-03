@@ -1,0 +1,28 @@
+[
+  {
+    "name":"Halle",
+    "email":"halle@gmail.com",
+    "password":"abc123"
+  },
+  {
+    "name":"Mateus",
+    "email":"mateus@gmail.com",
+    "password":"abc123"
+  },
+  {
+    "name":"Denny",
+    "email":"denny@gmail.com",
+    "password":"abc123"
+  },
+  {
+    "name":"Michael",
+    "email":"michael@gmail.com",
+    "password":"abc123"
+  },
+  {
+    "name":"Trizzie",
+    "email":"trizzie@gmail.com",
+    "password":"abc123"
+  }
+
+]

@@ -29,8 +29,8 @@ const recipeSchema = new Schema({
   description: {
     type: String,
     required: false,
-  }
+  },
 });
-const Recipe = model("recipe",recipeSchema)
+const Recipe = model("recipe", recipeSchema);
 
-module.exports = Recipe
+module.exports = Recipe;

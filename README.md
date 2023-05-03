@@ -76,6 +76,5 @@ GIVEN a recipe blog
 
 <!-- 
 getting images to appear on recipe cards
-a useful form for creating recipe
-making a rating for individual recipe 
+making a rating for individual recipe (need login info?)
  -->

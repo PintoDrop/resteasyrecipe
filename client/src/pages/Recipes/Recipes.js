@@ -40,7 +40,7 @@ function Recipes() {
   const [expanded, setExpanded] = React.useState(false);
   const [rating, setRating] = useState(0);
   
-  const handleRatingChange = (newRating) => {
+  const ratingChange = (newRating) => {
     setRating(newRating);
   };
 
@@ -57,7 +57,7 @@ function Recipes() {
       cookTime: "30 minutes",
       description: "Tacos made with pollo for a zesty punch",
       
-      image: require("../../Images/chickenTacos.jpg"),
+      image: require("../../Images/chickenTacos.jpg").default,
       
     },
     {
@@ -70,7 +70,7 @@ function Recipes() {
       cookTime: "28 minutes",
       description: "Crisp salad",
       
-      image: require("../../Images/appleWalnutSal.jpg"),
+      image: require("../../Images/appleWalnutSal.jpg").default,
     },
   ]);
 
@@ -82,14 +82,14 @@ function Recipes() {
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                  {/* user avatar goes here */}R
+                  {/* user avatar goes here */}
                 </Avatar>
               }
-              action={
-                <IconButton aria-label="settings">
-                  <MoreVertIcon />
-                </IconButton>
-              }
+              // action={
+              //   <IconButton aria-label="settings">
+              //     <MoreVertIcon />
+              //   </IconButton>
+              // }
               title={recipe.name}
             />
             <CardMedia
@@ -117,8 +117,8 @@ function Recipes() {
                 <p>{recipe.region}</p> */}
                 <StarsRating
                   count={5}
-                  // value={rating}
-                  onChange={handleRatingChange}
+                  value={rating}
+                  onChange={ratingChange}
                   size={24}
                   color2={"#ffd700"}
                 />

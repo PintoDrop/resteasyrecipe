@@ -5,22 +5,21 @@ const UserData = require("./userData.json");
 const RecipeData = require("./recipeData.json");
 
 db.once("open", async () => {
-  //clean the database
-try
-  {
-  await Recipe.deleteMany({});
-  await User.deleteMany({});
+  try {
+    //clean the database
+    await Recipe.deleteMany({});
+    await User.deleteMany({});
 
-  //Create the database
-  const recipes = await Recipe.create(RecipeData);
+    //Create model
+    const recipes = await Recipe.create(RecipeData);
 
-  console.log("Recipes seeded!");
+    console.log("Recipes seeded!");
 
-  const users = await User.create(UserData);
+    const users = await User.create(UserData);
 
-  console.log("Users seeded!");
-  process.exit(0);
- } catch (err) {
+    console.log("Users seeded!");
+    process.exit(0);
+  } catch (err) {
     throw err;
- }
+  }
 });

@@ -30,6 +30,10 @@ const recipeSchema = new Schema({
     type: String,
     required: false,
   },
+  image: {
+    type: String,
+    required: false,
+  },
 });
 const Recipe = model("recipe", recipeSchema);
 

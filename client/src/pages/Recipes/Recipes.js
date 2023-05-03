@@ -23,7 +23,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
- 
+
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -43,11 +43,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 // export default 
 function Recipes() {
   const [expanded, setExpanded] = React.useState(false);
-
+  
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  
   const [recipes] = useState([
     {
       name: "Chicken Tacos",
@@ -56,26 +56,35 @@ function Recipes() {
       region: "Meixcan",
       cookTime: "30 minutes",
       description: "Tacos made with pollo for a zesty punch",
-
+      
       image: require("../../Images/chickenTacos.jpg"),
-
+      
     },
     {
       name: "Apple Walnut Salad",
       ingredients:
-        "Arugula, Belgian Endive, Apples, Dried Cranberries, Blue Cheese, Nuts, Maple Cinnamon Dressing  ",
+      "Arugula, Belgian Endive, Apples, Dried Cranberries, Blue Cheese, Nuts, Maple Cinnamon Dressing  ",
       instructions:
-        "1. Toast and chop the walnuts. 2.Whisk the dressing ingredients together. Stir in the apples. 3. Place the arugula and endive in a bowl. 4. Add part of the cranberries, cheese, and walnuts. 5. Transfer the apples to the bowl with the greens. Toss to coat. Continue to add the dressing until the salad is moist. 6.Finish with the remaining toppings and toss. ENJOY!",
+      "1. Toast and chop the walnuts. 2.Whisk the dressing ingredients together. Stir in the apples. 3. Place the arugula and endive in a bowl. 4. Add part of the cranberries, cheese, and walnuts. 5. Transfer the apples to the bowl with the greens. Toss to coat. Continue to add the dressing until the salad is moist. 6.Finish with the remaining toppings and toss. ENJOY!",
       region: "American",
       cookTime: "28 minutes",
       description: "Crisp salad",
-
+      
       image: require("../../Images/appleWalnutSal.jpg"),
     },
   ]);
-
-  return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
+  
+  // render(<StarsRating
+  //   count={5}
+  //   onChange={ratingChanged}
+  //   size={24}
+  //   color2={'#ffd700'} />,
+    
+  //   document.getElementById('where-to-render')
+  //   );
+    
+    return (
+      <div style={{ display: "flex", flexDirection: "row" }}>
       {recipes.map((recipe) => (
         <Card sx={{ maxWidth: 345 }} key={recipe.name}>
           <CardHeader
@@ -91,14 +100,14 @@ function Recipes() {
             }
             title={recipe.name}
             // subheader="September 14, 2016"
-          />
+            />
           <CardMedia
             component="img"
             height="194"
             // needs to be src not image?
             image={recipe.image}
             // alt="Paella dish"
-          />
+            />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
               <h2>Description: </h2>
@@ -159,29 +168,29 @@ function Recipes() {
       ))}
     </div>
   );
-        }
+}
 
 // function Recipe() {
   
-//  return (
-//     <div>
-//       <h1>Recipe Page</h1> 
-//       </div>
-//  )
- 
-  // render(
-  //   <StarsRating
-  //     count={5}
-  //     onChange={ratingChanged}
-  //     size={24}
-  //     color2={"#ffd700"}
-  //     />,
-      
-  //     document.getElementById("where-to-render")
-  //     )
-  // );
-// }
-
-
+  //  return (
+    //     <div>
+    //       <h1>Recipe Page</h1> 
+    //       </div>
+    //  )
+    
+    
+    
+    // render(
+    //   <StarsRating
+    //     count={5}
+    //     onChange={ratingChanged}
+    //     size={24}
+    //     color2={"#ffd700"}
+    //     />,
+        
+    //     document.getElementById("where-to-render")
+    //     )
+    // );
+    // }
 
 export default Recipes;

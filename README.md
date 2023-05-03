@@ -72,3 +72,10 @@ GIVEN a recipe blog
 ## Screen-Shots
 
 ![Wire Frame](./client/src/Images/wireframe.JPG)
+
+
+<!-- 
+getting images to appear on recipe cards
+a useful form for creating recipe
+
+ -->

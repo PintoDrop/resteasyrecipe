@@ -57,16 +57,11 @@
 // }
 
 import { useState } from "react";
-import * as React from "react";
-// import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import { FormControl, FormLabel } from "@mui/material";
-// import { Form } from "react-router-dom";
 import Grid from "@mui/material/Grid";
-
-
+import InputLabel from "@mui/material/InputLabel";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 
 export const CreateRecipe = () => {
   const [recipe, setRecipe] = useState({
@@ -84,106 +79,73 @@ export const CreateRecipe = () => {
   };
 
   return (
-    <div className="create-recipe">
-      <FormControl justifyContent="center">
+    <>
+      <Grid container justifyContent="center">
         <Grid container justifyContent="center">
           <h2>Create A Recipe</h2>
         </Grid>
-
-        <Grid
-          fullWidth
-          // xs={12}
-          container
-          direction="column"
-          alignItems="center"
-          // justifyContent="space-between"
-          my={2}
-
-          // pb={6}
-          // columns={{ xs: 4, sm: 8, md: 12 }}
-        >
-          <form className="create-recipe-input">
-
-            <Grid xs={12} my={2}>
+        <Grid item justifyContent="center" xs={10} md={6} lg={4}>
+          <form>
+            <InputLabel htmlFor="name">Name</InputLabel>
             <TextField
-              //  item p={6}
-              fullWidth
-              id="outlined-basic"
-              label="Name"
-              variant="outlined"
+              type="text"
+              id="name"
               onChange={handleChange}
-              multiline
-            />
-            </Grid>
-
-            <Grid xs={12} my={2}>
-            <TextField
               fullWidth
-              id="outlined-basic"
-              label="Region"
-              variant="outlined"
-              onChange={handleChange}
-              multiline
-            />
-            </Grid>
-
-            <Grid xs={12} my={2}>
-              <TextField
-                fullWidth
-                id="outlined-basic"
-                label="Description"
-                variant="outlined"
-                onChange={handleChange}
-                multiline
-              />
-            </Grid>
-
-            {/* <Grid pb={3}> */}
-
             
-              <TextField
-                fullWidth
-                id="outlined-basic"
-                label="Cook Time (Minutes)"
-                variant="outlined"
-                onChange={handleChange}
-                multiline
-              />
-            
-
-            {/* <Grid xs={12} my={2}> */}
-
-            <Grid xs={12} my={2}>
-            <TextField
-              fullWidth
-              label="Ingredients"
-              id="outlined-basic"
-              variant="outlined"
-              onChange={handleChange}
-              multiline
             />
-            </Grid>
 
-            <Grid xs={12} my={2}>
-
+            <InputLabel htmlFor="region">Region</InputLabel>
             <TextField
-              fullWidth
-              id="outlined-basic"
-              label="Instructions"
-              variant="outlined"
+              type="text"
+              id="name"
               onChange={handleChange}
-              multiline
+              fullWidth
             />
-            </Grid>
+
+            <InputLabel htmlFor="description">Description</InputLabel>
+            <TextField
+              id="description"
+              name="description"
+              multiline
+              onChange={handleChange}
+              fullWidth
+            ></TextField>
+
+            <InputLabel htmlFor="cookTime">Cook Time (minutes) </InputLabel>
+            <TextField
+              type="number"
+              id="cookTime"
+              fullWidth
+              onChange={handleChange}
+            ></TextField>
+
+            <InputLabel htmlFor="ingredients">Ingredients</InputLabel>
+            <TextField
+              id="ingredients"
+              name="ingredients"
+              onChange={handleChange}
+              fullWidth
+              multiline
+            ></TextField>
+
+            <InputLabel htmlFor="instructions">Instructions</InputLabel>
+            <TextField
+              id="instructions"
+              name="instructions"
+              onChange={handleChange}
+              fullWidth
+              multiline
+            ></TextField>
+            <Stack justifyContent="center" direction="row" spacing={2} padding={2}>
+              <Button variant="contained" type="on submit">
+                Submit Recipe
+              </Button>
+            </Stack>
           </form>
         </Grid>
-        <Stack spacing={2} direction="row" justifyContent="center">
-          <Button variant="contained" type="on submit">
-            Submit Recipe
-          </Button>
-        </Stack>
-      </FormControl>
-    </div>
+      </Grid>
+    </>
   );
 };
 

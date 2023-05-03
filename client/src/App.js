@@ -12,12 +12,12 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 import Register from "./pages/Register";
-import CreateRecipe from "./pages/Create"
+import CreateRecipe from "./pages/Create";
 
 // import Register from "./pages/Register";
 import Recipes from "./pages/Recipes";
 import Favorites from "./pages/Favorites";
-import Random from "./pages/Random"
+import Random from "./pages/Random";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import SearchBar from "./pages/SearchBanner";
@@ -47,6 +47,7 @@ function App() {
     random: false,
     login: false,
     favorites: false,
+    create: false,
   });
 
   return (
@@ -67,24 +68,13 @@ function App() {
         {pageState.random ? <Random /> : ""}
         {pageState.login ? <Login /> : ""}
         {pageState.favorites ? <Favorites /> : ""}
+        {pageState.create ? <CreateRecipe /> : ""}
         
-      </ApolloProvider>
+        
 
-
-    <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </div>
-      </Router>
     </ApolloProvider>
     
     <CssBaseline />
-    <CreateRecipe />
 
 
     </>

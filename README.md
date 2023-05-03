@@ -71,4 +71,7 @@ GIVEN a recipe blog
 
 ## Screen-Shots
 
-![Home Page Screenshot](./src/Images/wirefram.JPG)
+![Wire Frame](./client/src/Images/wireframe.JPG)
+
+
+

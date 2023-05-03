@@ -47,6 +47,7 @@ function App() {
     random: false,
     login: false,
     favorites: false,
+    create: false,
   });
 
   return (
@@ -69,11 +70,11 @@ function App() {
         {pageState.favorites ? <Favorites /> : ""}
         {pageState.create ? <CreateRecipe /> : ""}
         
+        
 
     </ApolloProvider>
     
     <CssBaseline />
-    <CreateRecipe />
 
 
     </>

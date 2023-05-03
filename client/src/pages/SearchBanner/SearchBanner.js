@@ -6,13 +6,19 @@ import Grid from "@mui/material/Grid";
 import HomePhoto from "../../Images/foodBanner.png";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
+import Button from "@mui/material/Button";
+
+
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const onSearch = (searchItem) => {
+    console.log("search", searchItem);
   };
   return (
     <>
@@ -29,13 +35,18 @@ function SearchBar() {
         <Grid container justifyContent={"center"}>
           <TextField
             sx={{ backgroundColor: "whitesmoke", width: 600 }}
-
             id="search"
             type="search"
             label="Search"
             value={searchTerm}
             onChange={handleChange}
           />
+          <Grid>
+            <Button variant="contained" onClick={() => onSearch(searchTerm)}>
+              Search
+            </Button>
+          </Grid>
+          
         </Grid>
       </Grid>
       ;

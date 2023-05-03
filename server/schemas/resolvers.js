@@ -10,7 +10,12 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    
+    recipes: async (parent, args, context) => {
+      if (context.user) {
+        return Recipe.find({ _id: context.user._id });
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
   Mutation: {
     register: async (parent, { name, email, password }) => {
@@ -36,7 +41,7 @@ const resolvers = {
     },
     removeRecipe: async (parent, { id }) => {
       const recipe = await Recipe.findByIdAndDelete(id);
-      return ({ example: "It worked" })
+      return { example: "It worked" };
     },
     saveRecipe: async (parent, { recipeData }, context) => {
       if (context.user) {
@@ -44,11 +49,10 @@ const resolvers = {
           { _id: context.user._id },
           { $addToSet: { savedRecipes: recipeData } },
           { new: true }
-          );
-          return recipe;
-
-        }
-    }
+        );
+        return recipe;
+      }
+    },
   },
 };
 

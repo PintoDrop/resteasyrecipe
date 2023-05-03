@@ -26,7 +26,7 @@ const typeDefs = gql`
 
   input RecipeInput {
     name: String
-    ingredients: [String]
+    ingredients: [String!]
     instructions: [String!]
     region: String!
     cookTime: Int
@@ -40,6 +40,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
+    recipes: Recipe
   }
 
   type Mutation {

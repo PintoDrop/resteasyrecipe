@@ -6,12 +6,18 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+
+import Register from "./pages/Register";
+import CreateRecipe from "./pages/Create";
+
 // import Register from "./pages/Register";
 import Recipes from "./pages/Recipes";
+import Favorites from "./pages/Favorites";
+import Random from "./pages/Random";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import SearchBar from "./pages/SearchBanner";
@@ -40,6 +46,8 @@ function App() {
     recipes: true,
     random: false,
     login: false,
+    favorites: false,
+    create: false,
   });
 
   return (
@@ -57,11 +65,18 @@ function App() {
         <Home pageState={pageState} setPageState={setPageState} />
         <SearchBar />
         {pageState.recipes ? <Recipes /> : ""}
-        {/* {pageState.random ? <Random /> : ""} */}
+        {pageState.random ? <Random /> : ""}
         {pageState.login ? <Login /> : ""}
-      </ApolloProvider>
+        {pageState.favorites ? <Favorites /> : ""}
+        {pageState.create ? <CreateRecipe /> : ""}
+        
+        
 
-      <CssBaseline />
+    </ApolloProvider>
+    
+    <CssBaseline />
+
+
     </>
   );
 }

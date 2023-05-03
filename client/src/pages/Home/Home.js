@@ -12,10 +12,10 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
-// import Login from "../Login/Login";
 
-const pages = ["Recipes", "Random", "Login/Register"];
-const settings = ["Profile", "Create Recipe", "Favorites", "Logout"];
+
+// const pages = ["Recipes", "Random", "Login/Register"];
+// const settings = ["Profile", "Create Recipe", "Favorites", "Logout"];
 
 function Home({ pageState, setPageState }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,15 +37,21 @@ function Home({ pageState, setPageState }) {
   };
 
   const handleOpenRecipes = () => {
-    setPageState({ ...pageState, recipes: true, random: false, login: false });
+    setPageState({ ...pageState, recipes: true, random: false, login: false, create: false });
   };
 
   const handleOpenRandom = () => {
-    setPageState({ ...pageState, recipes: false, random: true, login: false });
+    setPageState({ ...pageState, recipes: false, random: true, login: false, create: false });
   };
   const handleOpenLogin = () => {
-    setPageState({ ...pageState, recipes: false, random: false, login: true });
+    setPageState({ ...pageState, recipes: false, random: false, login: true, create: false });
   };
+  const handleOpenFavorites = () => {
+    setPageState({...pageState, recipes: false, random: false, login: false, favorites: true})
+  };
+  const handleOpenCreateRecipe = () => {
+    setPageState({...pageState, recipes: false, random: false, login: false, create: true})
+  }
 
   return (
     <>
@@ -197,18 +203,24 @@ function Home({ pageState, setPageState }) {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                {/* {settings.map((setting) => ( */}
+                  {/* <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem> */}
+                  <MenuItem  onClick={handleOpenCreateRecipe}>
+                    <Typography textAlign="center">Create Recipe</Typography>
                   </MenuItem>
-                ))}
+                  <MenuItem  onClick={handleOpenFavorites}>
+                    <Typography textAlign="center">Favorites</Typography>
+                  </MenuItem>
+                {/* ))}  */}
               </Menu>
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
+      {/* <Favorites /> */}
 
-      {/* <Login /> */}
     </>
   );
 }

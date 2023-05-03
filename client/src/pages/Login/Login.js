@@ -8,11 +8,20 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { useFormControl } from "@mui/material/FormControl";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+
 
 
 import Auth from "../../utils/auth.js";
 
 function Login() {
+  const [open, setOpen] = useState(true);
+  
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
   const [formState, setFormState] = useState({
     email: "",
     password: "",
@@ -64,41 +73,62 @@ function Login() {
   };
   return (
     <>
-
+      <Grid container justifyContent="center">
         <Grid container justifyContent="center">
-          <Grid container justifyContent="center">
-            <h1>Login Here</h1>
-          </Grid>
-          <Grid item justifyContent="center" xs={10} md={6} lg={4}>
-            <form onSubmit={handleFormSubmit}>
-              <InputLabel>Email</InputLabel>
-              <TextField 
-                type="email"
-                name="email"
-                value={formState.email}
-                fullWidth
-                onChange={handleInputChange}
-              />
-              <InputLabel>Password</InputLabel>
-              <TextField
-                type="password"
-                name="password"
-                value={formState.password}
-                fullWidth
-                onChange={handleInputChange}
-              />
-              {/* <button type="submit">Login User</button> */}
-              <Stack justifyContent="center" direction="row" spacing={2} padding={2}>
-                <Button variant="contained" color="success">
-                  Login User
-                </Button>
-              </Stack>
-            </form>
-          </Grid>
-
-          <Register />
+          <h1>Login Here</h1>
+        </Grid>
+        <Grid item justifyContent="center" xs={10} md={6} lg={4}>
+          <form noValidate validated={validated} onSubmit={handleFormSubmit}>
+            <Stack sx={{ width: '100%' }} spacing={2}>
+              <Snackbar open={showAlert}>
+              <Alert 
+              dismissible
+              severity="error"
+              onClose={() =>setShowAlert(false)}
+              >
+                Please check your login inputs!
+              </Alert>
+              </Snackbar>
+            </Stack>
+            <InputLabel>Email</InputLabel>
+            <TextField
+              type="email"
+              name="email"
+              value={formState.email}
+              fullWidth
+              onChange={handleInputChange}
+              required
+            
+            />
+            <InputLabel>Password</InputLabel>
+            <TextField
+              type="password"
+              name="password"
+              value={formState.password}
+              fullWidth
+              onChange={handleInputChange}
+            />
+            {/* <button type="submit">Login User</button> */}
+            <Stack
+              justifyContent="center"
+              direction="row"
+              spacing={2}
+              padding={2}
+            >
+              <Button 
+              variant="contained"
+              color="success"
+              type="submit"
+              onClick={handleClick}
+              >
+                Login User
+              </Button>
+            </Stack>
+          </form>
         </Grid>
 
+        <Register />
+      </Grid>
     </>
   );
 }

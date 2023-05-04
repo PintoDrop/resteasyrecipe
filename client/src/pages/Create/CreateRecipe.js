@@ -92,7 +92,6 @@ export const CreateRecipe = () => {
               id="name"
               onChange={handleChange}
               fullWidth
-            
             />
 
             <InputLabel htmlFor="region">Region</InputLabel>
@@ -137,7 +136,12 @@ export const CreateRecipe = () => {
               fullWidth
               multiline
             ></TextField>
-            <Stack justifyContent="center" direction="row" spacing={2} padding={2}>
+            <Stack
+              justifyContent="center"
+              direction="row"
+              spacing={2}
+              padding={2}
+            >
               <Button variant="contained" type="on submit">
                 Submit Recipe
               </Button>

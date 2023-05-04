@@ -29,17 +29,6 @@ export const CreateRecipe = () => {
     setRecipe({ ...recipe, [name]: value });
   };
 
-  // images
-    const handleImageChange = (event) => {
-      setRecipe({ ...recipe, image: event.target.files[0] });
-    };
-
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(recipe);
-      };
-      // 
-
   return (
     <>
       <Grid container justifyContent="center">
@@ -99,25 +88,7 @@ export const CreateRecipe = () => {
               fullWidth
               multiline
             ></TextField>
-
-            {/* image uploading */}
-            <input
-              accept="image/*"
-              // justifyContent="center"
-              // fullWidth
-              id="image"
-              name="image"
-              type="file"
-              onChange={handleImageChange}
-            />
-            {/*  */}
-
-            <Stack
-              justifyContent="center"
-              direction="row"
-              spacing={2}
-              padding={2}
-            >
+            <Stack justifyContent="center" direction="row" spacing={2} padding={2}>
               <Button variant="contained" type="on submit">
                 Submit Recipe
               </Button>

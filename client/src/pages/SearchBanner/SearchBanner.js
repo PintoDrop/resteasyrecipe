@@ -9,7 +9,6 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 
 
-
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -32,24 +31,23 @@ function SearchBar() {
           width: "100%",
         }}
       >
-        <Grid container justifyContent={"center"}>
+        <Grid container justifyContent={"center"} padding={20}>
           <TextField
             sx={{ backgroundColor: "whitesmoke", width: 600 }}
             id="search"
             type="search"
-            label="Search"
             value={searchTerm}
+            label="Search"
             onChange={handleChange}
+            margin="dense"
           />
-          <Grid>
+          <Grid padding={2}>
             <Button variant="contained" onClick={() => onSearch(searchTerm)}>
               Search
             </Button>
           </Grid>
-          
         </Grid>
       </Grid>
-      
     </>
   );
 }

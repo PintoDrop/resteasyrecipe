@@ -45,7 +45,7 @@ const resolvers = {
         console.log(data)
         const recipe = await Recipe.create(data)
 
-        await.User.findByIdAndUpdatae({ _id: context.user._id },
+        await User.findByIdAndUpdatae({ _id: context.user._id },
           { $addToSet: { recipes: recipe } })
               
         return recipe;

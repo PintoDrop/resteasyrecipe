@@ -18,6 +18,15 @@ db.once("open", async () => {
     const users = await User.create(UserData);
 
     console.log("Users seeded!");
+
+    //Randomly add each recipe to a user
+    for (newRecipe of recipes) {
+      const tempUser = users[Math.floor(Math.random() * users.length)];
+      tempUser.recipes.push(newRecipe._id);
+      await tempUser.save();
+    }
+
+    console.log("added recipes randomly to each user.");
     process.exit(0);
   } catch (err) {
     throw err;

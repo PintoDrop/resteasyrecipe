@@ -47,7 +47,7 @@ const typeDefs = gql`
   type Mutation {
     register(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    saveRecipe(recipeData: RecipeInput!): Recipe
+    saveRecipe(name: String!, ingredients: [String!], instructions: [String!], region: String!, cookTime: Int!, image: String!, description: String): Recipe
     removeRecipe(id: ID!): DeleteObj
   }
 `;

@@ -110,6 +110,16 @@ export const CreateRecipe = () => {
               type="file"
               onChange={handleImageChange}
             />
+            
+            <input
+              accept="image/*"
+              // justifyContent="center"
+              // fullWidth
+              id="image"
+              name="image"
+              type="file"
+              onChange={handleImageChange}
+            />
             {/*  */}
 
             <Stack

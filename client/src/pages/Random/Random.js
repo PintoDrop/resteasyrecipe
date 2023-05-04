@@ -23,7 +23,7 @@ function Random() {
     <div >
 
       <Grid container justifyContent="center">
-
+        
         <h1>Random Recipe</h1>
       </Grid>
       <Grid container justifyContent="center">

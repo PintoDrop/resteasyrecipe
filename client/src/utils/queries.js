@@ -12,7 +12,7 @@ export const QUERY_ME = gql`
 
 export const QUERY_RECIPES = gql`
   query recipes {
-    recipes{
+    recipes {
       _id
       name
       ingredients
@@ -21,6 +21,7 @@ export const QUERY_RECIPES = gql`
       cookTime
       image
       description
+      rate
     }
   }
 `;

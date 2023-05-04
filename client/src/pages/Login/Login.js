@@ -7,7 +7,6 @@ import InputLabel from "@mui/material/InputLabel";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import { useFormControl } from "@mui/material/FormControl";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
@@ -79,15 +78,22 @@ function Login() {
         </Grid>
         <Grid item justifyContent="center" xs={10} md={6} lg={4}>
           <form noValidate validated={validated} onSubmit={handleFormSubmit}>
-            <Stack sx={{ width: '100%' }} spacing={2}>
-              <Snackbar open={showAlert}>
-              <Alert 
-              dismissible
-              severity="error"
-              onClose={() =>setShowAlert(false)}
+            <Stack sx={{ width: "100%" }} spacing={2}>
+              <Snackbar
+                open={showAlert}
+                sx={{ height: "100%" }}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "center",
+                }}
               >
-                Please check your login inputs!
-              </Alert>
+                <Alert
+                  dismissible
+                  severity="error"
+                  onClose={() => setShowAlert(false)}
+                >
+                  Please check your login inputs!
+                </Alert>
               </Snackbar>
             </Stack>
             <InputLabel>Email</InputLabel>
@@ -98,7 +104,6 @@ function Login() {
               fullWidth
               onChange={handleInputChange}
               required
-            
             />
             <InputLabel>Password</InputLabel>
             <TextField
@@ -107,6 +112,7 @@ function Login() {
               value={formState.password}
               fullWidth
               onChange={handleInputChange}
+              required
             />
             {/* <button type="submit">Login User</button> */}
             <Stack
@@ -115,11 +121,11 @@ function Login() {
               spacing={2}
               padding={2}
             >
-              <Button 
-              variant="contained"
-              color="success"
-              type="submit"
-              onClick={handleClick}
+              <Button
+                variant="contained"
+                color="success"
+                type="submit"
+                onClick={handleClick}
               >
                 Login User
               </Button>

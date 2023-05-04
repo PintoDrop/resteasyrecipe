@@ -1,19 +1,58 @@
-import React from 'react'
-import Recipes from '../Recipes'
+import React from "react";
+import Recipes from "../Recipes";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import { useState } from "react";
 
 function Random() {
-//   const randoRecipe = ["chicken tacos"]
+  // replace with data from API
+  const recipes = ["chicken tacos"];
+  const [randoRecipe, setRandoRecipe] = useState();
 
-//   const randoIndex = Math.floor(math.random() * recipe.length);
+
+  const handleClick = () => {
+      var randomIndex = Math.floor(Math.random() * recipes.length);
+      setRandoRecipe(recipes[randomIndex]);
+    
+  };
+  //   const randoIndex = Math.floor(math.random() * recipe.length);
 
   return (
+  
+    // <>
+    <div >
 
-    // <button onClick={Random}>Get a random recipe</button>
-    <>
-      <h1>Random Recipe</h1>
-      <Recipes />
-    </>
+      <Grid container justifyContent="center">
+
+        <h1>Random Recipe</h1>
+      </Grid>
+      <Grid container justifyContent="center">
+
+        <Button variant="contained" color="success" onClick={handleClick}>
+          Find Random Recipe
+        </Button>
+      </Grid>
+      {/* </Grid> */}
+      {/* data rendered needs to go on a card once api is data is functional. Conditional render (if data) */}
+      <Recipes data={randoRecipe}/>
+      </div>
+    // </>
   );
 }
 
-export default Random
+export default Random;
+
+//     data
+// 
+// 
+// 
+// 
+// 
+// render(Recipe)
+// 
+// 
+// 
+// 
+// 
+// 
+// 

@@ -4,7 +4,8 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 
-/* function Random() {
+
+function Random() {
   // replace with data from API
   const recipes = ["chicken tacos"];
   const [randoRecipe, setRandoRecipe] = useState();

@@ -10,6 +10,9 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    users: async ()=>{
+      return await.User.find();
+    }
     recipes: async () => {
       return Recipe.find();
     },

@@ -12,7 +12,7 @@ export const QUERY_ME = gql`
 
 export const QUERY_RECIPE = gql`
   query recipes {
-    recipe{
+    recipes{
       _id
       name
       ingredients

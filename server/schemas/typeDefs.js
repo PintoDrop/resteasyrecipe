@@ -23,17 +23,7 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
-
-  input RecipeInput {
-    name: String
-    ingredients: [String!]
-    instructions: [String!]
-    region: String!
-    cookTime: Int
-    image: String
-    description: String
-  }
-
+  
   type DeleteObj {
     example: String
   }

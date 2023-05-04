@@ -106,7 +106,6 @@ export const CreateRecipe = () => {
               id="name"
               onChange={handleChange}
               fullWidth
-            
             />
 
             <InputLabel htmlFor="region">Region</InputLabel>
@@ -143,14 +142,28 @@ export const CreateRecipe = () => {
               multiline
             ></TextField>
 
-        <label htmlFor="instructions">Instructions</label>
-        <textarea
-          id="instructions"
-          name="instructions"
-          onChange={handleChange}
-        ></textarea>
-      </form>
-    </div>
+            <InputLabel htmlFor="instructions">Instructions</InputLabel>
+            <TextField
+              id="instructions"
+              name="instructions"
+              onChange={handleChange}
+              fullWidth
+              multiline
+            ></TextField>
+            <Stack
+              justifyContent="center"
+              direction="row"
+              spacing={2}
+              padding={2}
+            >
+              <Button variant="contained" type="on submit">
+                Submit Recipe
+              </Button>
+            </Stack>
+          </form>
+        </Grid>
+      </Grid>
+    </>
   );
 };
 

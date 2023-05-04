@@ -44,7 +44,7 @@ function Recipes() {
   const { loading, data } = useQuery(QUERY_RECIPES);
   const recipes = data?.recipes || [];
 
-  console.log(recipes);
+
 
   if (loading) {
     return <div>Loading...</div>;

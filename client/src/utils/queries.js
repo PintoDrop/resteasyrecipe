@@ -10,7 +10,7 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const QUERY_RECIPE = gql`
+export const QUERY_RECIPES = gql`
   query recipes {
     recipes{
       _id

@@ -78,6 +78,20 @@ export const CreateRecipe = () => {
     setRecipe({ ...recipe, [name]: value });
   };
 
+/*   const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await CreateRecipe({
+        variables: { ...formState },
+      });
+      console.log(data);
+      Auth.login(data.register.token);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+ */
+
   return (
     <>
       <Grid container justifyContent="center">
@@ -129,24 +143,19 @@ export const CreateRecipe = () => {
               multiline
             ></TextField>
 
-            <InputLabel htmlFor="instructions">Instructions</InputLabel>
-            <TextField
-              id="instructions"
-              name="instructions"
-              onChange={handleChange}
-              fullWidth
-              multiline
-            ></TextField>
-            <Stack justifyContent="center" direction="row" spacing={2} padding={2}>
-              <Button variant="contained" type="on submit">
-                Submit Recipe
-              </Button>
-            </Stack>
-          </form>
-        </Grid>
-      </Grid>
-    </>
+        <label htmlFor="instructions">Instructions</label>
+        <textarea
+          id="instructions"
+          name="instructions"
+          onChange={handleChange}
+        ></textarea>
+      </form>
+    </div>
   );
 };
+
+
+
+
 
 export default CreateRecipe;

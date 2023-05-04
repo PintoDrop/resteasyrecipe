@@ -29,6 +29,7 @@ export const CreateRecipe = () => {
     setRecipe({ ...recipe, [name]: value });
   };
 
+
   // images
     const handleImageChange = (event) => {
       setRecipe({ ...recipe, image: event.target.files[0] });
@@ -39,6 +40,7 @@ export const CreateRecipe = () => {
         console.log(recipe);
       };
       // 
+
 
   return (
     <>
@@ -130,5 +132,9 @@ export const CreateRecipe = () => {
     </>
   );
 };
+
+
+
+
 
 export default CreateRecipe;

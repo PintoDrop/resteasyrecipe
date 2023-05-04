@@ -40,13 +40,12 @@ const resolvers = {
       const recipe = await Recipe.findByIdAndDelete(id);
       return { example: "It worked" };
     },
-    saveRecipe: async (parent, { recipeData }, context) => {
+    saveRecipe: async (parent, data, context) => {
       if (context.user) {
-        const recipe = await Recipe.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { savedRecipes: recipeData } },
-          { new: true }
-        );
+        console.log(data)
+        const recipe = await Recipe.create(data)
+
+        await User.findByIdAndUpdate({ _id: context.user._id }, { $addToSet: { recipes: recipe } })
         return recipe;
       }
     },

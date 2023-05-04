@@ -25,13 +25,41 @@ export const LOGIN_USER = gql`
     }
   }
 `;
-export const CREATE_RECIPE = gql `
+export const CREATE_RECIPE = gql`
   mutation saveRecipe($recipeData: RecipeInput!) {
     saveRecipe(recipeData: $recipeData) {
       _id
-      name
+      username
       email
-      saved
+      savedRecipe {
+        recipeId
+        name
+        ingredients
+        instructions
+        region
+        cookTime
+        image
+        description
+      }
     }
   }
-`
+`;
+  export const REMOVE_RECIPE = gql`
+    mutation removeRecipe($recipeId: ID!) {
+      removeRecipe(recipeId: $recipeId) {
+        _id
+        username
+        email
+        savedRecipe {
+          recipeId
+          name
+          ingredients
+          instructions
+          region
+          cookTime
+          image
+          description
+        }
+      }
+    }
+  `;

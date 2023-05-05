@@ -61,7 +61,7 @@ function Recipes() {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "center",
           width: "100%",
           flexWrap: "wrap",
         }}
@@ -73,7 +73,6 @@ function Recipes() {
               marginRight: 10,
               marginLeft: 10,
               marginBottom: "20px",
-              marginTop: "50px",
             }}
             key={recipe.name}
           >

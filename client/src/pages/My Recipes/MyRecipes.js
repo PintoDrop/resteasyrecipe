@@ -57,6 +57,7 @@ function Recipes() {
         {" "}
         {user.name}'s Recipes
       </Typography>
+      
       <div
         style={{
           display: "flex",

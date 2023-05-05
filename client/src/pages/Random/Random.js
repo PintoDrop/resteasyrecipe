@@ -5,12 +5,12 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 
 
-function Random() {
+// function Random() {
 
   // replace with data from API
-  const recipes = ["chicken tacos"];
-  const [randoRecipe, setRandoRecipe] = useState();
- */
+  // const recipes = ["chicken tacos"];
+  // const [randoRecipe, setRandoRecipe] = useState();
+ 
 
 function RandomRecipePicker() {
   const [recipes, setRecipes] = useState([]);
@@ -53,7 +53,7 @@ function RandomRecipePicker() {
       </Grid>
       {/* </Grid> */}
       {/* data rendered needs to go on a card once api is data is functional. Conditional render (if data) */}
-      <Recipes data={randoRecipe} />
+      <Recipes data={randomRecipe} />
     </div>
     // </>
   );

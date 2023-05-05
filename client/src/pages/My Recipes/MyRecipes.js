@@ -57,6 +57,7 @@ function Recipes() {
         {" "}
         {user.name}'s Recipes
       </Typography>
+      
       <div
         style={{
           display: "flex",
@@ -72,7 +73,6 @@ function Recipes() {
               marginRight: 10,
               marginLeft: 10,
               marginBottom: "20px",
-              marginTop: "50px"
             }}
             key={recipe.name}
           >

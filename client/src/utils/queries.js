@@ -37,3 +37,19 @@ export const QUERY_RECIPES = gql`
     }
   }
 `;
+
+export const QUERY_RECIPE_BY_REGION = gql`
+  query Recipe($recipeRegion: String!) {
+    recipe(recipeRegion: $recipeRegion) {
+      _id
+      cookTime
+      description
+      image
+      ingredients
+      instructions
+      name
+      rate
+      region
+    }
+  }
+`;

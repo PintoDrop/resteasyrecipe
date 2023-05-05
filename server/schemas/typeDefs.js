@@ -33,6 +33,7 @@ const typeDefs = gql`
   type Query {
     me: User
     recipes: [Recipe]
+    recipe(recipeRegion: String!): Recipe
     users: [User]
   }
 

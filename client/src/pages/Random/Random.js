@@ -28,7 +28,7 @@ const CookingStyleDropdown = ({ styles, onStyleSelected }) => {
   );
 };
 
-const RecipePicker = ({ recipes }) => {
+const RandomRecipePicker = ({ recipes }) => {
   const [randomRecipes, setRandomRecipes] = useState([]);
 
   const handleStyleSelected = (selectedStyle) => {
@@ -69,10 +69,10 @@ const RecipePicker = ({ recipes }) => {
   );
 };
 
+export default RandomRecipePicker;
 
 
-
-
+/* /* 
 
 function Random() {
 
@@ -81,7 +81,7 @@ function Random() {
   const [randoRecipe, setRandoRecipe] = useState();
  */
 
-function RandomRecipePicker() {
+/* function RandomRecipePicker() {
   const [recipes, setRecipes] = useState([]);
   const [selectedCookingStyle, setSelectedCookingStyle] = useState("");
   const [randomRecipe, setRandomRecipe] = useState(null);
@@ -97,7 +97,7 @@ function RandomRecipePicker() {
     const randomRecipe = filteredRecipes[randomIndex];
     // setting the recipe
     setRandomRecipe(randomRecipe);
-  };
+  }; */
 
   /*   const handleClick = () => {
       var randomIndex = Math.floor(Math.random() * recipes.length);
@@ -106,7 +106,7 @@ function RandomRecipePicker() {
   }; */
   //   const randoIndex = Math.floor(math.random() * recipe.length);
 
-  return (
+  /* return (
     <div>
       <Grid container justifyContent="center">
         <h1>Random Recipe</h1>
@@ -120,15 +120,13 @@ function RandomRecipePicker() {
           Find Random Recipe
         </Button>
       </Grid>
-      {/* </Grid> */}
-      {/* data rendered needs to go on a card once api is data is functional. Conditional render (if data) */}
+      { </Grid> }
+      { data rendered needs to go on a card once api is data is functional. Conditional render (if data) }
       <Recipes data={randoRecipe} />
     </div>
     // </>
   );
-}
-
-export default RandomRecipePicker;
+} */
 
 //     data
 //

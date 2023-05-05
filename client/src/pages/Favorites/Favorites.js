@@ -36,6 +36,9 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 function Favorites() {
   const [expanded, setExpanded] = React.useState(false);
   const [rating, setRating] = useState(0);
+  const [favoriteRecipes, setFavoriteRecipes] = useState([
+
+  ])
 
   const ratingChange = (newRating) => {
     setRating(newRating);
@@ -45,34 +48,34 @@ function Favorites() {
     setExpanded(!expanded);
   };
 
-  const [recipes] = useState([
-    {
-      name: "Chicken Tacos",
-      ingredients: "1/2 pound chicken, four bell peppers ",
-      instructions: "Cook chicken and heat tortillas",
-      region: "Meixcan",
-      cookTime: "30 minutes",
-      description: "Tacos made with pollo for a zesty punch",
+  // const [recipes] = useState([
+  //   {
+  //     name: "Chicken Tacos",
+  //     ingredients: "1/2 pound chicken, four bell peppers ",
+  //     instructions: "Cook chicken and heat tortillas",
+  //     region: "Meixcan",
+  //     cookTime: "30 minutes",
+  //     description: "Tacos made with pollo for a zesty punch",
 
-      image: require("../../Images/chickenTacos.jpg").default,
-    },
-    {
-      name: "Apple Walnut Salad",
-      ingredients:
-        "Arugula, Belgian Endive, Apples, Dried Cranberries, Blue Cheese, Nuts, Maple Cinnamon Dressing  ",
-      instructions:
-        "1. Toast and chop the walnuts. 2.Whisk the dressing ingredients together. Stir in the apples. 3. Place the arugula and endive in a bowl. 4. Add part of the cranberries, cheese, and walnuts. 5. Transfer the apples to the bowl with the greens. Toss to coat. Continue to add the dressing until the salad is moist. 6.Finish with the remaining toppings and toss. ENJOY!",
-      region: "American",
-      cookTime: "28 minutes",
-      description: "Crisp salad",
+  //     image: require("../../Images/chickenTacos.jpg").default,
+  //   },
+  //   {
+  //     name: "Apple Walnut Salad",
+  //     ingredients:
+  //       "Arugula, Belgian Endive, Apples, Dried Cranberries, Blue Cheese, Nuts, Maple Cinnamon Dressing  ",
+  //     instructions:
+  //       "1. Toast and chop the walnuts. 2.Whisk the dressing ingredients together. Stir in the apples. 3. Place the arugula and endive in a bowl. 4. Add part of the cranberries, cheese, and walnuts. 5. Transfer the apples to the bowl with the greens. Toss to coat. Continue to add the dressing until the salad is moist. 6.Finish with the remaining toppings and toss. ENJOY!",
+  //     region: "American",
+  //     cookTime: "28 minutes",
+  //     description: "Crisp salad",
 
-      image: require("../../Images/appleWalnutSal.jpg").default,
-    },
-  ]);
+  //     image: require("../../Images/appleWalnutSal.jpg").default,
+  //   },
+  // ]);
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      {recipes.map((recipe) => (
+      {favoriteRecipes.map((recipe) => (
         <Card sx={{ maxWidth: 345 }} key={recipe.name}>
           <h1>Favorites</h1>
           <CardHeader

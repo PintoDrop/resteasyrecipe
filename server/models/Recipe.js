@@ -34,6 +34,11 @@ const recipeSchema = new Schema({
     type: String,
     required: false,
   },
+  rate:{
+    type:Number,
+    required:false,
+
+  }
 });
 const Recipe = model("recipe", recipeSchema);
 

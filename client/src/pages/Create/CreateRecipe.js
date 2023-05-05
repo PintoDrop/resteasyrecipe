@@ -1,15 +1,12 @@
+// export default CreateRecipe;
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-
-// 
-// import React from "react";
-// import ImageUploading from "react-images-uploading";
-// 
-
+import { useMutation } from "@apollo/client";
+import { CREATE_RECIPE } from "../../utils/mutations";
 
 export const CreateRecipe = () => {
   const [recipe, setRecipe] = useState({
@@ -19,28 +16,47 @@ export const CreateRecipe = () => {
     cookTime: 0,
     ingredients: "",
     instructions: "",
-
-    image: null,
+    image: "",
   });
-  
-  
+
   const handleChange = (event) => {
     const { name, value } = event.target;
+    if (name === "cookTime") {
+      if (value < 0) {
+        setRecipe({...recipe, [name]: 0});
+        return;
+      }
+    }
     setRecipe({ ...recipe, [name]: value });
   };
 
+  const handleImageChange = (event) => {
+    setRecipe({ ...recipe, image: event.target.files[0] });
+  };
 
-  // images
-    const handleImageChange = (event) => {
-      setRecipe({ ...recipe, image: event.target.files[0] });
-    };
+  const [createRecipe] = useMutation(CREATE_RECIPE);
 
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(recipe);
-      };
-      // 
-
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(recipe);
+    try {
+      const { data } = await createRecipe({
+        variables: {
+          name: recipe.name,
+          region: recipe.region,
+          description: recipe.description,
+          cookTime: parseInt(recipe.cookTime),
+          ingredients: recipe.ingredients.split(" "),
+          instructions: recipe.instructions.split(" "),
+          image: recipe.image,
+          //          image: recipe.image,
+        },
+      });
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -49,12 +65,12 @@ export const CreateRecipe = () => {
           <h2>Create A Recipe</h2>
         </Grid>
         <Grid item justifyContent="center" xs={10} md={6} lg={4}>
-          {/* changed from just <form> */}
           <form onSubmit={handleSubmit}>
             <InputLabel htmlFor="name">Name</InputLabel>
             <TextField
               type="text"
               id="name"
+              name="name"
               onChange={handleChange}
               fullWidth
             />
@@ -62,7 +78,8 @@ export const CreateRecipe = () => {
             <InputLabel htmlFor="region">Region</InputLabel>
             <TextField
               type="text"
-              id="name"
+              id="region"
+              name="region"
               onChange={handleChange}
               fullWidth
             />
@@ -74,15 +91,16 @@ export const CreateRecipe = () => {
               multiline
               onChange={handleChange}
               fullWidth
-            ></TextField>
+            />
 
             <InputLabel htmlFor="cookTime">Cook Time (minutes) </InputLabel>
             <TextField
               type="number"
               id="cookTime"
+              name="cookTime"
               fullWidth
               onChange={handleChange}
-            ></TextField>
+            />
 
             <InputLabel htmlFor="ingredients">Ingredients</InputLabel>
             <TextField
@@ -91,7 +109,7 @@ export const CreateRecipe = () => {
               onChange={handleChange}
               fullWidth
               multiline
-            ></TextField>
+            />
 
             <InputLabel htmlFor="instructions">Instructions</InputLabel>
             <TextField
@@ -100,19 +118,17 @@ export const CreateRecipe = () => {
               onChange={handleChange}
               fullWidth
               multiline
-            ></TextField>
-
-            {/* image uploading */}
-            <input
-              accept="image/*"
-              // justifyContent="center"
-              // fullWidth
+            />
+            <InputLabel htmlFor="image">Image</InputLabel>
+            <TextField
               id="image"
               name="image"
-              type="file"
-              onChange={handleImageChange}
+              onChange={handleChange}
+              fullWidth
+              multiline
             />
-            {/*  */}
+
+          
 
             <Stack
               justifyContent="center"
@@ -120,7 +136,7 @@ export const CreateRecipe = () => {
               spacing={2}
               padding={2}
             >
-              <Button variant="contained" type="on submit">
+              <Button variant="contained" type="submit">
                 Submit Recipe
               </Button>
             </Stack>
@@ -130,9 +146,5 @@ export const CreateRecipe = () => {
     </>
   );
 };
-
-
-
-
 
 export default CreateRecipe;

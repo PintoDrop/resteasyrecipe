@@ -10,8 +10,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    users: async () => {
+      return await User.find().populate("recipes");
+    },
     recipes: async () => {
-      return Recipe.find();
+      return await Recipe.find();
     },
   },
   Mutation: {
@@ -40,14 +43,16 @@ const resolvers = {
       const recipe = await Recipe.findByIdAndDelete(id);
       return { example: "It worked" };
     },
-    saveRecipe: async (parent, data, context) => {
+    createRecipe: async (parent, data, context) => {
       if (context.user) {
-        console.log(data)
-        const recipe = await Recipe.create(data)
+        console.log(data);
+        const recipe = await Recipe.create(data);
 
-        await.User.findByIdAndUpdatae({ _id: context.user._id },
-          { $addToSet: { recipes: recipe } })
-              
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { recipes: recipe } }
+        );
+
         return recipe;
       }
     },

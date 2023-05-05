@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 
+
 const CookingStyleDropdown = ({ styles, onStyleSelected }) => {
   const [selectedStyle, setSelectedStyle] = useState('');
 
@@ -74,12 +75,10 @@ export default RandomRecipePicker;
 
 /* /* 
 
-function Random() {
 
-  // replace with data from API
-  const recipes = ["chicken tacos"];
-  const [randoRecipe, setRandoRecipe] = useState();
- */
+//   // replace with data from API
+//   const recipes = ["chicken tacos"];
+//   const [randoRecipe, setRandoRecipe] = useState();
 
 /* function RandomRecipePicker() {
   const [recipes, setRecipes] = useState([]);
@@ -120,9 +119,11 @@ function Random() {
           Find Random Recipe
         </Button>
       </Grid>
+
       { </Grid> }
       { data rendered needs to go on a card once api is data is functional. Conditional render (if data) }
       <Recipes data={randoRecipe} />
+
     </div>
     // </>
   );

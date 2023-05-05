@@ -17,7 +17,6 @@ import StarsRating from "stars-rating";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_RECIPES } from "../../utils/queries";
-
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -36,16 +35,16 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 // export default
 function Recipes() {
   const [expanded, setExpanded] = React.useState(false);
-
+  
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  
   const { loading, data } = useQuery(QUERY_RECIPES);
   const recipes = data?.recipes || [];
-
-
-
+  
+  
+  
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -55,10 +54,24 @@ function Recipes() {
         {" "}
         All Recipes
       </Typography>
-
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "100%",
+          flexWrap: "wrap",
+        }}
+      >
         {recipes.map((recipe) => (
-          <Card sx={{ maxWidth: 345 }} key={recipe.name}>
+          <Card
+            sx={{
+              maxWidth: 345,
+              marginRight: 10,
+              marginLeft: 10,
+              marginBottom: "20px",
+            }}
+            key={recipe.name}
+          >
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -67,7 +80,12 @@ function Recipes() {
               }
               title={recipe.name}
             />
-            <CardMedia component="img" height="194" image={recipe.image} />
+            <CardMedia
+              component="img"
+              height="194"
+              image={recipe.image}
+              title={recipe.name}
+            />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
                 <h2>Description: </h2>
@@ -76,7 +94,7 @@ function Recipes() {
                 <StarsRating
                   count={5}
                   value={recipes.rate}
-                  // onChange={ratingChange}
+                  //onChange={ratingChange}
                   size={24}
                   color2={"#ffd700"}
                 />

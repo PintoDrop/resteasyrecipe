@@ -6,6 +6,7 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
+    recipes: [Recipe]
   }
 
   type Recipe {
@@ -17,13 +18,14 @@ const typeDefs = gql`
     cookTime: Int
     image: String
     description: String
+    rate: Int
   }
 
   type Auth {
     token: ID!
     user: User
   }
-  
+
   type DeleteObj {
     example: String
   }
@@ -31,13 +33,21 @@ const typeDefs = gql`
   type Query {
     me: User
     recipes: [Recipe]
-    users:[User]
+    users: [User]
   }
 
   type Mutation {
     register(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createRecipe(name: String!, ingredients: [String!], instructions: [String!], region: String!, cookTime: Int!, image: String!, description: String!): Recipe
+    createRecipe(
+      name: String!
+      ingredients: [String!]
+      instructions: [String!]
+      region: String!
+      cookTime: Int!
+      image: String!
+      description: String!
+    ): Recipe
     removeRecipe(id: ID!): DeleteObj
   }
 `;

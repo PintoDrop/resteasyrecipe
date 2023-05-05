@@ -46,8 +46,7 @@ function Recipes() {
 
   console.log(user.name);
 
-  const recipes = user.recipes;
-  console.log(recipes);
+  console.log(user.recipes);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -66,7 +65,7 @@ function Recipes() {
           flexWrap: "wrap",
         }}
       >
-        {recipes.map((recipe) => (
+        {user.recipes.map((recipe) => (
           <Card
             sx={{
               maxWidth: 345,
@@ -98,7 +97,7 @@ function Recipes() {
 
                 <StarsRating
                   count={5}
-                  value={recipes.rate}
+                  value={user.recipes.rate}
                   //onChange={ratingChange}
                   size={24}
                   color2={"#ffd700"}

@@ -85,9 +85,13 @@ making a random recipe button
 
 need:
 Favorite button
-login in
-register/sign up
+login in - done
+register/sign up - done
 random recipe
-logout button
-image uploader
+logout button 
+image uploader - done
+
+search bar - search by region
+random page 
+favorites page
  -->

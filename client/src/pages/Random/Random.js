@@ -5,12 +5,12 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 
 
-function Random() {
+// function Random() {
 
-  // replace with data from API
-  const recipes = ["chicken tacos"];
-  const [randoRecipe, setRandoRecipe] = useState();
- */
+//   // replace with data from API
+//   const recipes = ["chicken tacos"];
+//   const [randoRecipe, setRandoRecipe] = useState();
+//  */
 
 function RandomRecipePicker() {
   const [recipes, setRecipes] = useState([]);

@@ -12,11 +12,16 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
-// import { useEffect } from "react"; 
+import AllInclusiveTwoToneIcon from "@mui/icons-material/AllInclusiveTwoTone";
+import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
+import PermIdentityTwoToneIcon from "@mui/icons-material/PermIdentityTwoTone";
+// import { useEffect } from "react";
 import { useState } from "react";
-
-
-
+import FastfoodTwoToneIcon from "@mui/icons-material/FastfoodTwoTone";
+import DriveFileRenameOutlineTwoToneIcon from "@mui/icons-material/DriveFileRenameOutlineTwoTone";
+import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
+import MenuBookTwoToneIcon from "@mui/icons-material/MenuBookTwoTone";
+import Person2TwoToneIcon from "@mui/icons-material/Person2TwoTone";
 import Auth from "../../utils/auth.js";
 
 // const pages = ["Recipes", "Random", "Login/Register"];
@@ -126,7 +131,7 @@ function Home({ pageState, setPageState }) {
       create: true,
       favorites: false,
       search: false,
-      myRecipes:false
+      myRecipes: false,
     });
   };
   const handleOpenMyRecipes = () => {
@@ -138,10 +143,9 @@ function Home({ pageState, setPageState }) {
       create: false,
       favorites: false,
       search: false,
-      myRecipes:true
+      myRecipes: true,
     });
   };
-
 
   return (
     <>
@@ -206,25 +210,33 @@ function Home({ pageState, setPageState }) {
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem> */}
                 <MenuItem onClick={handleOpenRecipes}>
+                  <FastfoodTwoToneIcon sx={{ marginRight: "10px" }} />
                   <Typography textAlign="center">Recipes</Typography>
                 </MenuItem>
                 {Auth.loggedIn() ? (
                   <>
                     <MenuItem onClick={handleOpenRandom}>
+                      <AllInclusiveTwoToneIcon sx={{ marginRight: "10px" }} />
                       <Typography textAlign="center">Random</Typography>
                     </MenuItem>
                     <MenuItem onClick={handleOpenCreateRecipe}>
+                      <DriveFileRenameOutlineTwoToneIcon
+                        sx={{ marginRight: "10px" }}
+                      />
                       <Typography textAlign="center">Create Recipe</Typography>
                     </MenuItem>
                     <MenuItem onClick={handleOpenFavorites}>
+                      <FavoriteTwoToneIcon sx={{ marginRight: "10px" }} />
                       <Typography textAlign="center">Favorites</Typography>
                     </MenuItem>
                     <MenuItem onClick={Auth.logout}>
+                      <LogoutTwoToneIcon sx={{ marginRight: "10px" }} />
                       <Typography textAlign="center">Log Out</Typography>
                     </MenuItem>
                   </>
                 ) : (
                   <MenuItem onClick={handleOpenLogin}>
+                    <PermIdentityTwoToneIcon sx={{ marginRight: "10px" }} />
                     <Typography textAlign="center">Login/Register</Typography>
                   </MenuItem>
                 )}
@@ -265,6 +277,7 @@ function Home({ pageState, setPageState }) {
                 onClick={handleOpenRecipes}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
+                <FastfoodTwoToneIcon sx={{ marginRight: "5px" }} />
                 Recipes
               </Button>
               {/* {loginStatus ? ( */}
@@ -274,24 +287,30 @@ function Home({ pageState, setPageState }) {
                     onClick={handleOpenRandom}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
+                    <AllInclusiveTwoToneIcon sx={{ marginRight: "5px" }} />
                     Random
                   </Button>
                   <Button
                     onClick={handleOpenCreateRecipe}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
+                    <DriveFileRenameOutlineTwoToneIcon
+                      sx={{ marginRight: "5px" }}
+                    />
                     Create Recipe
                   </Button>
                   <Button
                     onClick={handleOpenMyRecipes}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
+                    <MenuBookTwoToneIcon sx={{ marginRight: "5px" }} />
                     My Recipes
                   </Button>
                   <Button
                     onClick={handleOpenFavorites}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
+                    <FavoriteTwoToneIcon sx={{ marginRight: "5px" }} />
                     Favorites
                   </Button>
 
@@ -299,6 +318,7 @@ function Home({ pageState, setPageState }) {
                     onClick={Auth.logout}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
+                    <LogoutTwoToneIcon sx={{ marginRight: "5px" }} />
                     Logout
                   </Button>
                 </>
@@ -307,6 +327,7 @@ function Home({ pageState, setPageState }) {
                   onClick={handleOpenLogin}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
+                  <Person2TwoToneIcon sx={{ marginRight: "5px" }} />
                   Login/Register
                 </Button>
               )}

@@ -7,7 +7,8 @@ import HomePhoto from "../../Images/foodBanner.png";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import Button from "@mui/material/Button";
-
+import { useQuery } from "@apollo/client";
+import { QUERY_RECIPES } from "../../utils/queries";
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");

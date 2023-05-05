@@ -16,6 +16,7 @@ const resolvers = {
     recipes: async () => {
       return await Recipe.find();
     },
+    
   },
   Mutation: {
     register: async (parent, { name, email, password }) => {

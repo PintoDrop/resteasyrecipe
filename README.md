@@ -102,5 +102,8 @@ image uploader - done
 
 search bar - search by region
 random page 
-favorites page
+
+favorites page - users adding favorites 
+need to update model - recipe (& User?), type defs?
+code on cards for recipe page?
  -->

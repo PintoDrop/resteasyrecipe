@@ -92,7 +92,7 @@ Favorite button
 login in - done
 register/sign up - done
 random recipe
-logout button 
+logout button - done
 image uploader - done
 
 search bar - search by region

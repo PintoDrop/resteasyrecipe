@@ -16,7 +16,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import StarsRating from "stars-rating";
 
 import { useQuery } from "@apollo/client";
-import { QUERY_RECIPES } from "../../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
+
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -35,51 +36,42 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 // export default
 function Recipes() {
   const [expanded, setExpanded] = React.useState(false);
-  // favorites code
-  const [favorites, setFavorites] = useState([]);
-  
-  const handleFavoriteClick = (recipeName) => {
-    if (favorites.includes(recipeName)) {
-      setFavorites(favorites.filter((name) => name !== recipeName));
-    } else {
-      setFavorites([...favorites, recipeName])
-    }
-  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  
-  const { loading, data } = useQuery(QUERY_RECIPES);
-  const recipes = data?.recipes || [];
-  
-  
-  
+
+  const { loading, data } = useQuery(QUERY_ME);
+  const user = data?.me || {};
+
+  console.log(user.name);
+
+  console.log(user.recipes);
+
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
     <>
-      <Typography marginTop="30px" variant="h3" align="center">
+      <Typography variant="h3" align="center">
         {" "}
-        All Recipes
+        {user.name}'s Recipes
       </Typography>
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "space-between",
           width: "100%",
           flexWrap: "wrap",
         }}
       >
-        {recipes.map((recipe) => (
+        {user.recipes.map((recipe) => (
           <Card
             sx={{
               maxWidth: 345,
               marginRight: 10,
               marginLeft: 10,
               marginBottom: "20px",
-              marginTop: "50px"
             }}
             key={recipe.name}
           >
@@ -105,7 +97,7 @@ function Recipes() {
 
                 <StarsRating
                   count={5}
-                  value={recipes.rate}
+                  value={user.recipes.rate}
                   //onChange={ratingChange}
                   size={24}
                   color2={"#ffd700"}
@@ -114,13 +106,8 @@ function Recipes() {
             </CardContent>
 
             <CardActions disableSpacing>
-              {/* adding favorites code */}
-              <IconButton aria-label="add to favorites"
-              onClick={() => handleFavoriteClick(recipe.name)}
-              >
-
-                <FavoriteIcon  color={favorites.includes(recipe.name) ? "secondary" : "inherit"}/>
-                
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
               </IconButton>
 
               <ExpandMore
@@ -161,4 +148,3 @@ function Recipes() {
 }
 
 export default Recipes;
-

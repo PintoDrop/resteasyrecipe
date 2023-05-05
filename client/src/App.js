@@ -18,6 +18,7 @@ import CreateRecipe from "./pages/Create";
 import Recipes from "./pages/Recipes";
 import Favorites from "./pages/Favorites";
 import Random from "./pages/Random";
+import MyRecipes from "./pages/My Recipes";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import SearchBar from "./pages/SearchBanner";
@@ -49,6 +50,7 @@ function App() {
     create: false,
     favorites: false,
     search: true,
+    myRecipes: false,
   });
 
   return (
@@ -70,14 +72,10 @@ function App() {
         {pageState.login ? <Login /> : ""}
         {pageState.create ? <CreateRecipe /> : ""}
         {pageState.favorites ? <Favorites /> : ""}
-        
-        
+        {pageState.myRecipes ? <MyRecipes /> : ""}
+      </ApolloProvider>
 
-    </ApolloProvider>
-    
-    <CssBaseline />
-
-
+      <CssBaseline />
     </>
   );
 }

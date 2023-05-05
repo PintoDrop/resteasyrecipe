@@ -43,11 +43,14 @@ GIVEN a recipe blog
 **WHEN click login/register**
 *Then I am brought to a form to either login with my information or sign up for a login*
 
-**WHEN I post my own recipes**
-*THEN I am brought to a form where I can enter in the ingredients, directions and add pictures of my recipe*
+**WHEN I view a posted recipe**
+*THEN I am able to click a drop down arrow to view more information on the recipe*
 
-**WHEN I search for other recipes**
-*THEN I am able to click on a recipe and comment and rate it*
+**WHEN I post my own recipes**
+*THEN I am brought to a form where I can enter in the name of the dish, the region of the dish, ingredients, directions, the cook time for the recipe and add pictures of my recipe*
+
+**WHEN I click on the star rating for a recipe**
+*THEN I am able to change the rating of that recipe*
 
 **WHEN I see a recipe I like**
 *I am able to favorite it and it is added to my saved recipes*
@@ -74,6 +77,8 @@ GIVEN a recipe blog
 ![Home Page](./client/src/Images/homepage.JPG)
 
 ![Login/Register](./client/src/Images/login-signup.JPG)
+
+![Home Page Logged in](./client/src/Images/homepage-login.JPG)
 
 ![Create Recipe](./client/src/Images/create.JPG)
 

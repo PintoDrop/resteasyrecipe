@@ -5,23 +5,27 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 
 
-const CookingStyleDropdown = ({ styles, onStyleSelected }) => {
-  const [selectedStyle, setSelectedStyle] = useState('');
+const RegionDropdown = ({ regions, onRegionSelected }) => {
+  const [selectedRegion, setSelectedRegion] = useState("");
 
   const handleSelectChange = (event) => {
-    const selectedStyle = event.target.value;
-    setSelectedStyle(selectedStyle);
-    onStyleSelected(selectedStyle);
+    const selectedRegion = event.target.value;
+    setSelectedRegion(selectedRegion);
+    onRegionSelected(selectedRegion);
   };
 
   return (
     <div>
-      <label htmlFor="style-dropdown">Select a cooking style: </label>
-      <select id="style-dropdown" value={selectedStyle} onChange={handleSelectChange}>
-        <option value="">-- Please select --</option>
-        {styles.map((style) => (
-          <option key={style} value={style}>
-            {style}
+      <label htmlFor="region-dropdown">Select a region: </label>
+      <select
+        id="region-dropdown"
+        value={selectedRegion}
+        onChange={handleSelectChange}
+      >
+        <option value=""> Please select </option>
+        {regions.map((region) => (
+          <option key={region} value={region}>
+            {region}
           </option>
         ))}
       </select>
@@ -31,17 +35,28 @@ const CookingStyleDropdown = ({ styles, onStyleSelected }) => {
 
 const RandomRecipePicker = ({ recipes }) => {
   const [randomRecipes, setRandomRecipes] = useState([]);
+  const [selectedRegion, setSelectedRegion] = useState("");
 
-  const handleStyleSelected = (selectedStyle) => {
+  const handleRegionSelected = (selectedRegion) => {
+    setSelectedRegion(selectedRegion);
+    handleRecipePick();
+  };
+
+  const handleRecipePick = () => {
     const filteredRecipes = recipes.filter(
-      (recipe) => recipe.cookingStyle.toLowerCase() === selectedStyle.toLowerCase()
+      (recipe) =>
+        selectedRegion === "" ||
+        recipe.region.toLowerCase() === selectedRegion.toLowerCase()
     );
     if (filteredRecipes.length === 0) {
-      alert("No recipes found for the specified cooking style.");
+      alert("No recipes found for the specified region.");
       return;
     }
     const randomIndexes = [];
-    while (randomIndexes.length < 3 && randomIndexes.length < filteredRecipes.length) {
+    while (
+      randomIndexes.length < 3 &&
+      randomIndexes.length < filteredRecipes.length
+    ) {
       const randomIndex = Math.floor(Math.random() * filteredRecipes.length);
       if (!randomIndexes.includes(randomIndex)) {
         randomIndexes.push(randomIndex);
@@ -51,13 +66,17 @@ const RandomRecipePicker = ({ recipes }) => {
     setRandomRecipes(randomRecipes);
   };
 
-  const styles = Array.from(new Set(recipes.map((recipe) => recipe.cookingStyle)));
+  const regions = Array.from(new Set(recipes.map((recipe) => recipe.region)));
 
   return (
     <div>
       <CookingStyleDropdown
         styles={styles}
         onStyleSelected={handleStyleSelected}
+      />
+      <RegionDropdown
+        regions={regions}
+        onRegionSelected={handleRegionSelected}
       />
       {randomRecipes.length > 0 && (
         <div>
@@ -84,6 +103,7 @@ const RandomRecipePicker = ({ recipes }) => {
     </div>
   );
 };
+
 
 export default RandomRecipePicker;
 

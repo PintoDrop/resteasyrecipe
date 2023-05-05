@@ -12,14 +12,41 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+// import { useEffect } from "react"; 
+import { useState } from "react";
 
+
+import Auth from "../../utils/auth.js";
 
 // const pages = ["Recipes", "Random", "Login/Register"];
 // const settings = ["Profile", "Create Recipe", "Favorites", "Logout"];
 
 function Home({ pageState, setPageState }) {
+  // const authStatus = localStorage.getItem("auth")
+
+  // const [loginStatus, setLoginStatus] = React.useState(false)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  // const [showButton, setShowButton] = useState(false);
+
+  // useEffect(()=> {
+  //   checkStorage();
+  //   return () => {}
+  // }, [loginStatus])
+
+  // const checkStorage= () => {
+  //   if (localStorage.getItem("loginStatus")) {
+  //     setLoginStatus(true)
+  //   } else {
+  //     setLoginStatus(false)
+  //   }
+  // }
+
+  // const logOut = () => {
+  //   localStorage.removeItem("loginStatus");
+  //   setLoginStatus(false)
+  // }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -36,8 +63,11 @@ function Home({ pageState, setPageState }) {
     setAnchorElUser(null);
   };
 
+  // setLoginStatus(localStorage.getItem("loginStatus"));
+
   const handleOpenRecipes = () => {
     setPageState({ ...pageState, recipes: true, random: false, login: false, create: false, favorites: false, search: true });
+    // setLoginStatus(true);
   };
 
   const handleOpenRandom = () => {
@@ -53,6 +83,7 @@ function Home({ pageState, setPageState }) {
   };
   const handleOpenLogin = () => {
     setPageState({ ...pageState, recipes: false, random: false, login: true, create: false, favorites: false, search: false });
+    // localStorage.setItem("loginStatus", true)
   };
   const handleOpenFavorites = () => {
     setPageState({
@@ -75,7 +106,8 @@ function Home({ pageState, setPageState }) {
       favorites: false,
       search: false
     });
-  }
+  };
+
 
   return (
     <>
@@ -142,12 +174,26 @@ function Home({ pageState, setPageState }) {
                 <MenuItem onClick={handleOpenRecipes}>
                   <Typography textAlign="center">Recipes</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleOpenRandom}>
-                  <Typography textAlign="center">Random</Typography>
-                </MenuItem>
-                <MenuItem onClick={handleOpenLogin}>
-                  <Typography textAlign="center">Login/Register</Typography>
-                </MenuItem>
+                {Auth.loggedIn() ? (
+                  <>
+                    <MenuItem onClick={handleOpenRandom}>
+                      <Typography textAlign="center">Random</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleOpenCreateRecipe}>
+                      <Typography textAlign="center">Create Recipe</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleOpenFavorites}>
+                      <Typography textAlign="center">Favorites</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={Auth.logout}>
+                      <Typography textAlign="center">Log Out</Typography>
+                    </MenuItem>
+                  </>
+                ) : (
+                  <MenuItem onClick={handleOpenLogin}>
+                    <Typography textAlign="center">Login/Register</Typography>
+                  </MenuItem>
+                )}
 
                 {/* ))} */}
               </Menu>
@@ -180,35 +226,79 @@ function Home({ pageState, setPageState }) {
                 >
                   {page}
                 </Button> */}
+
               <Button
-                // key={page}
                 onClick={handleOpenRecipes}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 Recipes
               </Button>
-              <Button
-                // key={page}
-                onClick={handleOpenRandom}
+              {/* {loginStatus ? ( */}
+              {Auth.loggedIn() ? (
+                <>
+                  <Button
+                    onClick={handleOpenRandom}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Random
+                  </Button>
+                  <Button
+                    onClick={handleOpenCreateRecipe}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Create Recipe
+                  </Button>
+                  <Button
+                    onClick={handleOpenFavorites}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Favorites
+                  </Button>
+
+                  <Button
+                    onClick={Auth.logout}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  onClick={handleOpenLogin}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Login/Register
+                </Button>
+              )}
+              {/* // <Button */}
+              {/* onClick={handleOpenRandom}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                Random
-              </Button>
-              <Button
-                // key={page}
-                onClick={handleOpenLogin}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Login/Register
-              </Button>
+               Random
+               </Button> */}
+              {/* ) : (<span></span>) */}
+
+              {/* }    */}
+              {/* {!loginStatus ? ( */}
+
+              {/* <Button
+                  onClick={handleOpenLogin}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Login/Register
+                </Button> */}
+              {/* ) : ( */}
+              {/* <span></span> */}
+              {/* )} */}
+
               {/* ))} */}
             </Box>
 
-            <Box sx={{ flexGrow: 0 }}>
+            {/* <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Options">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  {/* need ${user} and avatar images, avater letter changes with name */}
-                  <Avatar alt="Remy" src="/static/images/avatar/2.jpg" />
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
+            {/* need ${user} and avatar images, avater letter changes with name */}
+            {/* <Avatar alt="Remy" src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -226,25 +316,41 @@ function Home({ pageState, setPageState }) {
                 }}
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
-              >
-                {/* {settings.map((setting) => ( */}
-                  {/* <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              > */}
+            {/* {settings.map((setting) => ( */}
+            {/* <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem> */}
-                  <MenuItem  onClick={handleOpenCreateRecipe}>
-                    <Typography textAlign="center">Create Recipe</Typography>
-                  </MenuItem>
-                  <MenuItem  onClick={handleOpenFavorites}>
-                    <Typography textAlign="center">Favorites</Typography>
-                  </MenuItem>
-                {/* ))}  */}
-              </Menu>
-            </Box>
+
+            {/* {loginStatus ? ( */}
+            {/* {Auth.loggedIn() ? (
+
+                  <>
+                    <MenuItem onClick={handleOpenCreateRecipe}>
+                      <Typography textAlign="center">Create Recipe</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleOpenFavorites}>
+                      <Typography textAlign="center">Favorites</Typography>
+                    </MenuItem>
+                  </>
+                ): (
+
+                    <MenuItem onClick={Auth.logout}>
+                      <Typography textAlign="center">Logout</Typography>
+                    </MenuItem>
+
+                )} */}
+            {/* ) : (
+                  null
+                )} */}
+
+            {/* ))}  */}
+            {/* </Menu>
+            </Box> */}
           </Toolbar>
         </Container>
       </AppBar>
       {/* <Favorites /> */}
-
     </>
   );
 }

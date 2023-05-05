@@ -25,41 +25,53 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+// export const CREATE_RECIPE = gql `
+//   mutation saveRecipe($recipeData: ) {
+//     saveRecipe(recipeData: $recipeData) {
+//       _id
+//       name
+//       email
+//       saveRecipe {
+//         _id
+//         name
+//         region
+//         description
+//         cookTime
+//         ingredients
+//         instructions
+//         image
+//       }
+//     }
+//   }
+// `
+
 export const CREATE_RECIPE = gql`
-  mutation saveRecipe($recipeData: RecipeInput!) {
-    saveRecipe(recipeData: $recipeData) {
+  mutation createRecipe(
+    $name: String!,
+    $region: String!,
+    $description: String!,
+    $cookTime: Int!,
+    $ingredients: [String!]!,
+    $instructions: [String!]!,
+    $image: String!
+  ) {
+    createRecipe(
+        name: $name,
+        region: $region,
+        description: $description,
+        cookTime: $cookTime,
+        ingredients: $ingredients,
+        instructions: $instructions,
+        image: $image
+      ) {
       _id
-      username
-      email
-      savedRecipe {
-        recipeId
-        name
-        ingredients
-        instructions
-        region
-        cookTime
-        image
-        description
-      }
+      name
+      region
+      description
+      cookTime
+      ingredients
+      instructions
+      image
     }
   }
 `;
-  export const REMOVE_RECIPE = gql`
-    mutation removeRecipe($recipeId: ID!) {
-      removeRecipe(recipeId: $recipeId) {
-        _id
-        username
-        email
-        savedRecipe {
-          recipeId
-          name
-          ingredients
-          instructions
-          region
-          cookTime
-          image
-          description
-        }
-      }
-    }
-  `;

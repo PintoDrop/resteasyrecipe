@@ -44,6 +44,7 @@ function Recipes() {
     } else {
       setFavorites([...favorites, recipeName])
     }
+    console.log(favorites);
   };
 
   const handleExpandClick = () => {

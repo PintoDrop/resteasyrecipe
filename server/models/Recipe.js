@@ -40,12 +40,6 @@ const recipeSchema = new Schema({
 
   },
 
-  // testing favorites 
-  favorites: {
-    type: String,
-    required: false,
-  }
-  // 
 });
 const Recipe = model("recipe", recipeSchema);
 

@@ -55,7 +55,10 @@ const RandomRecipePicker = ({ recipes }) => {
 
   return (
     <div>
-      <CookingStyleDropdown styles={styles} onStyleSelected={handleStyleSelected} />
+      <CookingStyleDropdown
+        styles={styles}
+        onStyleSelected={handleStyleSelected}
+      />
       {randomRecipes.length > 0 && (
         <div>
           <h3>Random Recipes:</h3>
@@ -63,6 +66,18 @@ const RandomRecipePicker = ({ recipes }) => {
             {randomRecipes.map((recipe) => (
               <li key={recipe.name}>{recipe.name}</li>
             ))}
+
+            {/* <Grid container justifyContent="center">
+              <Button
+                variant="contained"
+                color="success"
+                onClick={handlePickRandomRecipe}
+              >
+                Find Random Recipe
+              </Button>
+              <Recipes data={randomRecipes} />
+            </Grid> */}
+
           </ul>
         </div>
       )}

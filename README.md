@@ -38,10 +38,10 @@ _Website for license_
 GIVEN a recipe blog
 
 **WHEN I load the page**
-*THEN I am able to log in or sign up*
+*THEN I am able to see recipes by other users*
 
-**WHEN I log in**
-*THEN I am able to see my saved recipes and post my own*
+**WHEN click login/register**
+*Then I am brought to a form to either login with my information or sign up for a login*
 
 **WHEN I post my own recipes**
 *THEN I am brought to a form where I can enter in the ingredients, directions and add pictures of my recipe*

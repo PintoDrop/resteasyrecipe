@@ -50,9 +50,9 @@ function SearchBar() {
             <Button variant="contained" onClick={fetchRecipes}>
               Search
             </Button>
-            
-            <div>
-              {data &&() <div> Recipe Name: {data.recipe.name} </div>}</div>
+
+            {/* <div>
+              {data &&() <div> Recipe Name: {data.recipe.name} </div>}</div> */}
           </Grid>
         </Grid>
       </Grid>

@@ -71,7 +71,11 @@ GIVEN a recipe blog
 
 ## Screen-Shots
 
-![Wire Frame](./client/src/Images/wireframe.JPG)
+![Home Page](./client/src/Images/homepage.JPG)
+
+![Login/Register](./client/src/Images/login-signup.JPG)
+
+![Create Recipe](./client/src/Images/create.JPG)
 
 
 <!-- 

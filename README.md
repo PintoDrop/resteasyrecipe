@@ -1,4 +1,4 @@
-# Rest Easy Recipe
+# Rest Easy Recipe!
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -38,16 +38,19 @@ _Website for license_
 GIVEN a recipe blog
 
 **WHEN I load the page**
-*THEN I am able to log in or sign up*
+*THEN I am able to see recipes by other users*
 
-**WHEN I log in**
-*THEN I am able to see my saved recipes and post my own*
+**WHEN click login/register**
+*Then I am brought to a form to either login with my information or sign up for a login*
+
+**WHEN I view a posted recipe**
+*THEN I am able to click a drop down arrow to view more information on the recipe*
 
 **WHEN I post my own recipes**
-*THEN I am brought to a form where I can enter in the ingredients, directions and add pictures of my recipe*
+*THEN I am brought to a form where I can enter in the name of the dish, the region of the dish, ingredients, directions, the cook time for the recipe and add pictures of my recipe*
 
-**WHEN I search for other recipes**
-*THEN I am able to click on a recipe and comment and rate it*
+**WHEN I click on the star rating for a recipe**
+*THEN I am able to change the rating of that recipe*
 
 **WHEN I see a recipe I like**
 *I am able to favorite it and it is added to my saved recipes*
@@ -71,7 +74,13 @@ GIVEN a recipe blog
 
 ## Screen-Shots
 
-![Wire Frame](./client/src/Images/wireframe.JPG)
+![Home Page](./client/src/Images/homepage.JPG)
+
+![Login/Register](./client/src/Images/login-signup.JPG)
+
+![Home Page Logged in](./client/src/Images/homepage-login.JPG)
+
+![Create Recipe](./client/src/Images/create.JPG)
 
 
 <!-- 
@@ -85,9 +94,13 @@ making a random recipe button
 
 need:
 Favorite button
-login in
-register/sign up
+login in - done
+register/sign up - done
 random recipe
-logout button
-image uploader
+logout button - done
+image uploader - done
+
+search bar - search by region
+random page 
+favorites page
  -->

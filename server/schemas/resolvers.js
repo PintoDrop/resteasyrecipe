@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('recipes');
+        return User.findOne({ _id: context.user._id }).populate("recipes");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -15,6 +15,9 @@ const resolvers = {
     },
     recipes: async () => {
       return await Recipe.find();
+    },
+    recipe: async (parent, { recipeRegion }) => {
+      return await Recipe.findOne({ region: recipeRegion });
     },
   },
   Mutation: {

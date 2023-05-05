@@ -33,7 +33,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 // export default
-function Recipes() {
+function Favorites() {
   const [expanded, setExpanded] = React.useState(false);
   const [rating, setRating] = useState(0);
 
@@ -164,4 +164,4 @@ function Recipes() {
   );
 }
 
-export default Recipes;
+export default Favorites;

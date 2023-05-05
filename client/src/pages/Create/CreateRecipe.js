@@ -9,6 +9,7 @@ import { useMutation } from "@apollo/client";
 import { CREATE_RECIPE } from "../../utils/mutations";
 
 export const CreateRecipe = () => {
+
   const [recipe, setRecipe] = useState({
     name: "",
     region: "",
@@ -46,8 +47,8 @@ export const CreateRecipe = () => {
           region: recipe.region,
           description: recipe.description,
           cookTime: parseInt(recipe.cookTime),
-          ingredients: recipe.ingredients.split(" "),
-          instructions: recipe.instructions.split(" "),
+          ingredients: recipe.ingredients.split("/\r\n/"),
+          instructions: recipe.instructions.split("/\r\n/"),
           image: recipe.image,
           //          image: recipe.image,
         },
@@ -136,7 +137,11 @@ export const CreateRecipe = () => {
               spacing={2}
               padding={2}
             >
-              <Button variant="contained" type="submit">
+              <Button
+              variant="contained"
+              type="submit"
+              onClick={event => window.location.href="/myrecipes"}
+              >
                 Submit Recipe
               </Button>
             </Stack>

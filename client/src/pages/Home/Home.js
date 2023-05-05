@@ -16,6 +16,7 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import { useState } from "react";
 
 
+
 import Auth from "../../utils/auth.js";
 
 // const pages = ["Recipes", "Random", "Login/Register"];
@@ -66,7 +67,16 @@ function Home({ pageState, setPageState }) {
   // setLoginStatus(localStorage.getItem("loginStatus"));
 
   const handleOpenRecipes = () => {
-    setPageState({ ...pageState, recipes: true, random: false, login: false, create: false, favorites: false, search: true });
+    setPageState({
+      ...pageState,
+      recipes: true,
+      random: false,
+      login: false,
+      create: false,
+      favorites: false,
+      search: true,
+      myRecipes: false,
+    });
     // setLoginStatus(true);
   };
 
@@ -79,10 +89,20 @@ function Home({ pageState, setPageState }) {
       create: false,
       favorites: false,
       search: true,
+      myRecipes: false,
     });
   };
   const handleOpenLogin = () => {
-    setPageState({ ...pageState, recipes: false, random: false, login: true, create: false, favorites: false, search: false });
+    setPageState({
+      ...pageState,
+      recipes: false,
+      random: false,
+      login: true,
+      create: false,
+      favorites: false,
+      search: false,
+      myRecipes: false,
+    });
     // localStorage.setItem("loginStatus", true)
   };
   const handleOpenFavorites = () => {
@@ -94,6 +114,7 @@ function Home({ pageState, setPageState }) {
       favorites: true,
       create: false,
       search: true,
+      myRecipes: false,
     });
   };
   const handleOpenCreateRecipe = () => {
@@ -104,7 +125,8 @@ function Home({ pageState, setPageState }) {
       login: false,
       create: true,
       favorites: false,
-      search: false
+      search: false,
+      myRecipes:false
     });
   };
   const handleOpenMyRecipes = () => {
@@ -113,9 +135,10 @@ function Home({ pageState, setPageState }) {
       recipes: false,
       random: false,
       login: false,
-      create: true,
+      create: false,
       favorites: false,
       search: false,
+      myRecipes:true
     });
   };
 

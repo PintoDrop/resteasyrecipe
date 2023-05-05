@@ -48,14 +48,13 @@ const RandomRecipePicker = () => {
       alert("Please select a region.");
       return;
     }
-    
+
     if (!data) return;
 
     const recipes = data.recipes;
 
     const filteredRecipes = recipes.filter(
-      (recipe) =>
-        recipe.region.toLowerCase() === selectedRegion.toLowerCase()
+      (recipe) => recipe.region.toLowerCase() === selectedRegion.toLowerCase()
     );
 
     if (filteredRecipes.length === 0) {
@@ -81,17 +80,7 @@ const RandomRecipePicker = () => {
 
   const recipes = data?.recipes || [];
   const regions = Array.from(new Set(recipes.map((recipe) => recipe.region)));
-
-  return (
-    <div>
-      <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
-      {showDropdown && (
-        <div>
-          <RegionDropdown
-            regions={regions}
-            onRegionSelected={handleRegionSelected}
-          />
-          <Button onClick
+};
 
 export default RandomRecipePicker;
 

@@ -77,7 +77,10 @@ function Favorites() {
     <div style={{ display: "flex", flexDirection: "row" }}>
       {favoriteRecipes.map((recipe) => (
         <Card sx={{ maxWidth: 345 }} key={recipe.name}>
-          <h1>Favorites</h1>
+          <Typography marginTop="30px" variant="h3" align="center">
+            {" "}
+            Favorites
+          </Typography>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

@@ -107,6 +107,17 @@ function Home({ pageState, setPageState }) {
       search: false
     });
   };
+  const handleOpenMyRecipes = () => {
+    setPageState({
+      ...pageState,
+      recipes: false,
+      random: false,
+      login: false,
+      create: true,
+      favorites: false,
+      search: false,
+    });
+  };
 
 
   return (
@@ -247,6 +258,12 @@ function Home({ pageState, setPageState }) {
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
                     Create Recipe
+                  </Button>
+                  <Button
+                    onClick={handleOpenMyRecipes}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    My Recipes
                   </Button>
                   <Button
                     onClick={handleOpenFavorites}

@@ -9,6 +9,7 @@ import { useMutation } from "@apollo/client";
 import { CREATE_RECIPE } from "../../utils/mutations";
 
 export const CreateRecipe = () => {
+
   const [recipe, setRecipe] = useState({
     name: "",
     region: "",
@@ -136,7 +137,11 @@ export const CreateRecipe = () => {
               spacing={2}
               padding={2}
             >
-              <Button variant="contained" type="submit">
+              <Button
+              variant="contained"
+              type="submit"
+              onClick={event => window.location.href="/"}
+              >
                 Submit Recipe
               </Button>
             </Stack>

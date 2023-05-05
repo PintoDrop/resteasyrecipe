@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Recipes from "../Recipes";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import { useState } from "react";
-
+import { useQuery } from "@apollo/client";
+import { QUERY_RECIPES } from "../../utils/queries";
 
 const RegionDropdown = ({ regions, onRegionSelected }) => {
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -33,25 +33,36 @@ const RegionDropdown = ({ regions, onRegionSelected }) => {
   );
 };
 
-const RandomRecipePicker = ({ recipes }) => {
+const RandomRecipePicker = () => {
+  const { loading, data } = useQuery(QUERY_RECIPES);
   const [randomRecipes, setRandomRecipes] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState("");
 
   const handleRegionSelected = (selectedRegion) => {
     setSelectedRegion(selectedRegion);
-    handleRecipePick();
   };
 
   const handleRecipePick = () => {
+    if (!selectedRegion) {
+      alert("Please select a region.");
+      return;
+    }
+    
+    if (!data) return;
+
+    const recipes = data.recipes;
+
     const filteredRecipes = recipes.filter(
       (recipe) =>
-        selectedRegion === "" ||
         recipe.region.toLowerCase() === selectedRegion.toLowerCase()
     );
+
     if (filteredRecipes.length === 0) {
       alert("No recipes found for the specified region.");
       return;
     }
+
     const randomIndexes = [];
     while (
       randomIndexes.length < 3 &&
@@ -66,47 +77,23 @@ const RandomRecipePicker = ({ recipes }) => {
     setRandomRecipes(randomRecipes);
   };
 
+  if (loading) return <div>Loading...</div>;
+
+  const recipes = data?.recipes || [];
   const regions = Array.from(new Set(recipes.map((recipe) => recipe.region)));
 
   return (
     <div>
-      <CookingStyleDropdown
-        styles={styles}
-        onStyleSelected={handleStyleSelected}
-      />
-      <RegionDropdown
-        regions={regions}
-        onRegionSelected={handleRegionSelected}
-      />
-      {randomRecipes.length > 0 && (
+      <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
+      {showDropdown && (
         <div>
-          <h3>Random Recipes:</h3>
-          <ul>
-            {randomRecipes.map((recipe) => (
-              <li key={recipe.name}>{recipe.name}</li>
-            ))}
-
-            {/* <Grid container justifyContent="center">
-              <Button
-                variant="contained"
-                color="success"
-                onClick={handlePickRandomRecipe}
-              >
-                Find Random Recipe
-              </Button>
-              <Recipes data={randomRecipes} />
-            </Grid> */}
-
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-};
-
+          <RegionDropdown
+            regions={regions}
+            onRegionSelected={handleRegionSelected}
+          />
+          <Button onClick
 
 export default RandomRecipePicker;
-
 
 /* /* 
 
@@ -133,14 +120,14 @@ export default RandomRecipePicker;
     setRandomRecipe(randomRecipe);
   }; */
 
-  /*   const handleClick = () => {
+/*   const handleClick = () => {
       var randomIndex = Math.floor(Math.random() * recipes.length);
       setRandoRecipe(recipes[randomIndex]);
     
   }; */
-  //   const randoIndex = Math.floor(math.random() * recipe.length);
+//   const randoIndex = Math.floor(math.random() * recipe.length);
 
-  /* return (
+/* return (
     <div>
       <Grid container justifyContent="center">
         <h1>Random Recipe</h1>

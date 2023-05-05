@@ -38,7 +38,14 @@ const recipeSchema = new Schema({
     type:Number,
     required:false,
 
+  },
+
+  // testing favorites 
+  favorites: {
+    type: String,
+    required: false,
   }
+  // 
 });
 const Recipe = model("recipe", recipeSchema);
 

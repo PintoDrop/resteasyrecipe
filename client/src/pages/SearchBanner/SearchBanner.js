@@ -21,8 +21,10 @@ function SearchBar() {
   //   console.log("search", searchItem);
   // };
 
-  const [fetchRecipes, { data, error }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
-
+  const [fetchRecipes, { data, error }] = useLazyQuery(QUERY_RECIPE_BY_REGION, {
+    variables: { recipeRegion: searchTerm },
+  });
+  console.log(data?.recipe)
   return (
     <>
       <Grid

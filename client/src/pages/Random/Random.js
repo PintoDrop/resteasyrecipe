@@ -91,7 +91,12 @@ const RandomRecipePicker = () => {
             regions={regions}
             onRegionSelected={handleRegionSelected}
           />
-          <Button onClick
+          <Button onClick></Button>
+          </div>
+      )}
+      </div>
+      )
+}
 
 export default RandomRecipePicker;
 

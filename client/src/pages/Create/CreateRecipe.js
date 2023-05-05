@@ -175,8 +175,8 @@ export const CreateRecipe = () => {
           cookTime: parseInt(recipe.cookTime),
           ingredients: recipe.ingredients.split(" "),
           instructions: recipe.instructions.split(" "),
-          image: "test",
-          //          image: recipe.image,
+           image: "test",
+         //          image: recipe.image,
         },
       });
       console.log(data);

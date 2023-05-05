@@ -82,7 +82,7 @@ function Recipes() {
             />
             <CardMedia
               component="img"
-              height="194"
+              // height="194"
               image={recipe.image}
               title={recipe.name}
             />

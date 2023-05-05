@@ -43,7 +43,7 @@ export const CreateRecipe = () => {
       const { data } = await createRecipe({
         variables: {
           name: recipe.name,
-          region: recipe.region,
+          region: recipe.region.toLowerCase(),
           description: recipe.description,
           cookTime: parseInt(recipe.cookTime),
           ingredients: recipe.ingredients.split("/\r\n/"),

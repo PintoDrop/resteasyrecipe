@@ -46,7 +46,8 @@ function Recipes() {
     }
   };
 
-  const handleExpandClick = () => {
+  const handleExpandClick = (ID) => {
+    const collapse = docucument.querySelector(`[data-ID=${ID}]`)// change value of expand and in to true/false
     setExpanded(!expanded);
   };
   
@@ -125,14 +126,14 @@ function Recipes() {
 
               <ExpandMore
                 expand={expanded}
-                onClick={handleExpandClick}
+                onClick={handleExpandClick(recipe._id)}
                 aria-expanded={expanded}
                 aria-label="show more"
               >
                 <ExpandMoreIcon />
               </ExpandMore>
             </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <Collapse data-ID ={recipe._id} in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
                 <Typography paragraph>
                   <h3>Directions: </h3>

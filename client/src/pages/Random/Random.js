@@ -49,10 +49,9 @@ const RandomRecipePicker = () => {
       return;
     }
 
+
     if (!data) return;
-
     const recipes = data.recipes;
-
     const filteredRecipes = recipes.filter(
       (recipe) => recipe.region.toLowerCase() === selectedRegion.toLowerCase()
     );

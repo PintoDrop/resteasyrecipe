@@ -64,9 +64,12 @@ function SearchBar() {
   //   console.log("search", searchItem);
   // };
 
+
+
   const [fetchRecipes, { data }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
 
   // console.log(data.name);
+
 
   return (
     <>

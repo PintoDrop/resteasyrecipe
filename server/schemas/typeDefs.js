@@ -37,6 +37,18 @@ const typeDefs = gql`
     users: [User]
   }
 
+  type Query {
+    searchRecipes(
+      name: String
+      region: String
+      description: String
+      cookTime: Int
+      ingredients: [String]
+      instructions: String
+      image: String
+    ): [Recipe]
+  }
+
   type Mutation {
     register(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth

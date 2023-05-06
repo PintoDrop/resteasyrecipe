@@ -7,9 +7,9 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { useMutation } from "@apollo/client";
 import { CREATE_RECIPE } from "../../utils/mutations";
+import { useNavigate } from "react-router-dom";
 
 export const CreateRecipe = () => {
-
   const [recipe, setRecipe] = useState({
     name: "",
     region: "",
@@ -140,7 +140,7 @@ export const CreateRecipe = () => {
               <Button
               variant="contained"
               type="submit"
-              onClick={event => window.location.href="/myrecipes"}
+              onClick={() => (window.location.href="/myrecipes")}
               >
                 Submit Recipe
               </Button>

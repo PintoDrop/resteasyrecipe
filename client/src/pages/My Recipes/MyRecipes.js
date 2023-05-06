@@ -53,14 +53,15 @@ function Recipes() {
   }
   return (
     <>
-      <Typography variant="h3" align="center">
+      <Typography marginTop="30px" variant="h3" align="center">
         {" "}
         {user.name}'s Recipes
       </Typography>
+      
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "center",
           width: "100%",
           flexWrap: "wrap",
         }}

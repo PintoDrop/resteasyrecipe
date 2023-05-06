@@ -24,7 +24,7 @@ export const CreateRecipe = () => {
     const { name, value } = event.target;
     if (name === "cookTime") {
       if (value < 0) {
-        setRecipe({...recipe, [name]: 0});
+        setRecipe({ ...recipe, [name]: 0 });
         return;
       }
     }
@@ -129,8 +129,6 @@ export const CreateRecipe = () => {
               multiline
             />
 
-          
-
             <Stack
               justifyContent="center"
               direction="row"
@@ -138,9 +136,9 @@ export const CreateRecipe = () => {
               padding={2}
             >
               <Button
-              variant="contained"
-              type="submit"
-              onClick={() => (window.location.href="/myrecipes")}
+                variant="contained"
+                type="submit"
+                onClick={(event) => (window.location.href = "/myrecipes")}
               >
                 Submit Recipe
               </Button>

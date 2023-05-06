@@ -35,7 +35,17 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 // export default
 function Recipes() {
   const [expanded, setExpanded] = React.useState(false);
+  // favorites code
+  const [favorites, setFavorites] = useState([]);
   
+  const handleFavoriteClick = (recipeName) => {
+    if (favorites.includes(recipeName)) {
+      setFavorites(favorites.filter((name) => name !== recipeName));
+    } else {
+      setFavorites([...favorites, recipeName])
+    }
+  };
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -104,8 +114,13 @@ function Recipes() {
             </CardContent>
 
             <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
+              {/* adding favorites code */}
+              <IconButton aria-label="add to favorites"
+              onClick={() => handleFavoriteClick(recipe.name)}
+              >
+
+                <FavoriteIcon  color={favorites.includes(recipe.name) ? "secondary" : "inherit"}/>
+                
               </IconButton>
 
               <ExpandMore

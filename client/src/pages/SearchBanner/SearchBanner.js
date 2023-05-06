@@ -60,7 +60,16 @@ function SearchBar() {
     setSearchTerm(event.target.value);
   };
 
-  const [fetchRecipes, { data, error }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
+  // const onSearch = (searchItem) => {
+  //   console.log("search", searchItem);
+  // };
+
+
+
+  const [fetchRecipes, { data }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
+
+  // console.log(data.name);
+
 
   return (
     <>

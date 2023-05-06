@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { useMutation } from "@apollo/client";
 import { CREATE_RECIPE } from "../../utils/mutations";
+import { useNavigate } from "react-router-dom";
 
 export const CreateRecipe = () => {
   const [recipe, setRecipe] = useState({

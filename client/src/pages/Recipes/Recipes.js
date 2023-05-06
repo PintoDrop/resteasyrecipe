@@ -37,25 +37,23 @@ function Recipes() {
   const [expanded, setExpanded] = React.useState(false);
   // favorites code
   const [favorites, setFavorites] = useState([]);
-  
+
   const handleFavoriteClick = (recipeName) => {
     if (favorites.includes(recipeName)) {
       setFavorites(favorites.filter((name) => name !== recipeName));
     } else {
-      setFavorites([...favorites, recipeName])
+      setFavorites([...favorites, recipeName]);
     }
   };
 
   const handleExpandClick = (ID) => {
-    const collapse = docucument.querySelector(`[data-ID=${ID}]`)// change value of expand and in to true/false
+    // const collapse = docucument.querySelector(`[data-ID=${ID}]`)// change value of expand and in to true/false
     setExpanded(!expanded);
   };
-  
+
   const { loading, data } = useQuery(QUERY_RECIPES);
   const recipes = data?.recipes || [];
-  
-  
-  
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -80,7 +78,7 @@ function Recipes() {
               marginRight: 10,
               marginLeft: 10,
               marginBottom: "20px",
-              marginTop: "50px"
+              marginTop: "50px",
             }}
             key={recipe.name}
           >
@@ -116,24 +114,27 @@ function Recipes() {
 
             <CardActions disableSpacing>
               {/* adding favorites code */}
-              <IconButton aria-label="add to favorites"
-              onClick={() => handleFavoriteClick(recipe.name)}
+              <IconButton
+                aria-label="add to favorites"
+                onClick={() => handleFavoriteClick(recipe.name)}
               >
-
-                <FavoriteIcon  color={favorites.includes(recipe.name) ? "secondary" : "inherit"}/>
-                
+                <FavoriteIcon
+                  color={
+                    favorites.includes(recipe.name) ? "secondary" : "inherit"
+                  }
+                />
               </IconButton>
 
               <ExpandMore
                 expand={expanded}
-                onClick={handleExpandClick(recipe._id)}
+                onClick={handleExpandClick}
                 aria-expanded={expanded}
                 aria-label="show more"
               >
                 <ExpandMoreIcon />
               </ExpandMore>
             </CardActions>
-            <Collapse data-ID ={recipe._id} in={expanded} timeout="auto" unmountOnExit>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
                 <Typography paragraph>
                   <h3>Directions: </h3>
@@ -162,4 +163,3 @@ function Recipes() {
 }
 
 export default Recipes;
-

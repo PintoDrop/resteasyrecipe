@@ -15,21 +15,25 @@ const RegionDropdown = ({ regions, onRegionSelected }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="region-dropdown">Select a region: </label>
-      <select
-        id="region-dropdown"
-        value={selectedRegion}
-        onChange={handleSelectChange}
-      >
-        <option value=""> Please select </option>
-        {regions.map((region) => (
-          <option key={region} value={region}>
-            {region}
-          </option>
-        ))}
-      </select>
-    </div>
+    <>
+      <Grid container justifyContent="center">
+        <div>
+          <label htmlFor="region-dropdown">Select a region: </label>
+          <select
+            id="region-dropdown"
+            value={selectedRegion}
+            onChange={handleSelectChange}
+          >
+            <option value=""> Please select </option>
+            {regions.map((region) => (
+              <option key={region} value={region}>
+                {region}
+              </option>
+            ))}
+          </select>
+        </div>
+      </Grid>
+    </>
   );
 };
 
@@ -81,27 +85,35 @@ const RandomRecipePicker = () => {
   const regions = Array.from(new Set(recipes.map((recipe) => recipe.region)));
 
   return (
-    <div>
-      <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
-      {showDropdown && (
-        <div>
-          <RegionDropdown
-            regions={regions}
-            onRegionSelected={handleRegionSelected}
-          />
-          <Button onClick={handleRecipePick}>Pick Random Recipe</Button>
-        </div>
-      )}
+    <>
+      <Grid container justifyContent="center">
+        <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
+      </Grid>
+      <Grid container justifyContent="center" padding={2}>
+        {showDropdown && (
+          <div>
+            <RegionDropdown
+              regions={regions}
+              onRegionSelected={handleRegionSelected}
+            />
+            <Grid container justifyContent="center" padding={2}>
+              <Button onClick={handleRecipePick}>Pick Random Recipe</Button>
+            </Grid>
+          </div>
+        )}
+      </Grid>
+
+
       {randomRecipes.length > 0 && (
-        <Grid container spacing={3}>
+        <Grid container justifyContent="center" spacing={4} >
           {randomRecipes.map((recipe) => (
             <Grid item xs={12} sm={6} md={4} key={recipe._id}>
-              <RecipeCard recipe={recipe}/>
+              <RecipeCard recipe={recipe} />
             </Grid>
           ))}
         </Grid>
       )}
-    </div>
+    </>
   );
 };
 

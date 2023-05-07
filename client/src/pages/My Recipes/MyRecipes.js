@@ -75,6 +75,7 @@ function Recipes() {
               marginBottom: "20px",
             }}
             key={recipe.name}
+            elevation={8}
           >
             <CardHeader
               avatar={

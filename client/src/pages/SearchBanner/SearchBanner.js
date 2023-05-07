@@ -97,6 +97,7 @@ function SearchBar() {
               onClick={() => {
                 fetchRecipes({ variables: { recipeRegion: searchTerm } });
               }}
+              style={{ background: "#dd2c00" }}
             >
               Search
             </Button>

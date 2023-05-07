@@ -149,12 +149,12 @@ function Home({ pageState, setPageState }) {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: "#b71c1c" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <MenuBookIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
             <Typography
-              variant="h6"
+              variant="h4"
               noWrap
               component="a"
               href="/"

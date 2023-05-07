@@ -37,6 +37,7 @@ function Recipes() {
   const [expanded, setExpanded] = React.useState(false);
   // favorites code
   const [favorites, setFavorites] = useState([]);
+
   
   const handleFavoriteClick = (recipeName) => {
     if (favorites.includes(recipeName)) {
@@ -79,9 +80,10 @@ function Recipes() {
               marginRight: 10,
               marginLeft: 10,
               marginBottom: "20px",
-              marginTop: "50px"
+              marginTop: "50px",
             }}
             key={recipe.name}
+            elevation={8}
           >
             <CardHeader
               avatar={
@@ -115,12 +117,15 @@ function Recipes() {
 
             <CardActions disableSpacing>
               {/* adding favorites code */}
-              <IconButton aria-label="add to favorites"
-              onClick={() => handleFavoriteClick(recipe.name)}
+              <IconButton
+                aria-label="add to favorites"
+                onClick={() => handleFavoriteClick(recipe.name)}
               >
-
-                <FavoriteIcon  color={favorites.includes(recipe.name) ? "secondary" : "inherit"}/>
-                
+                <FavoriteIcon
+                  color={
+                    favorites.includes(recipe.name) ? "secondary" : "inherit"
+                  }
+                />
               </IconButton>
 
               <ExpandMore
@@ -134,20 +139,20 @@ function Recipes() {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
-                <Typography paragraph>
+                <Typography paragraph variant="body2">
                   <h3>Directions: </h3>
                   {recipe.instructions}
                 </Typography>
-                <Typography paragraph>
+                <Typography paragraph variant="body2">
                   <h3>Ingredients: </h3>
                   {recipe.ingredients}
                 </Typography>
-                <Typography paragraph>
+                <Typography paragraph variant="body2">
                   <h3>Cook time: </h3>
                   {recipe.cookTime}
                   <p> minutes</p>
                 </Typography>
-                <Typography>
+                <Typography variant="body2">
                   <h3>Region: </h3>
                   {recipe.region}
                 </Typography>

@@ -64,9 +64,12 @@ function SearchBar() {
   //   console.log("search", searchItem);
   // };
 
+
+
   const [fetchRecipes, { data }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
 
   // console.log(data.name);
+
 
   return (
     <>
@@ -90,7 +93,7 @@ function SearchBar() {
             onChange={handleChange}
             margin="dense"
           />
-          {/* onClick={() => onSearch(searchTerm)} */}
+
           <Grid padding={2}>
             <Button
               variant="contained"
@@ -101,14 +104,6 @@ function SearchBar() {
             >
               Search
             </Button>
-            {/* <div>
-              {recipeSearched && (
-                <div>
-                  {" "}
-                  <h1> Recipe Name:{recipeSearched.recipe.name}</h1>{" "}
-                </div>
-              )}
-            </div> */}
           </Grid>
         </Grid>
       </Grid>
@@ -133,15 +128,15 @@ function SearchBar() {
               >
                 <CardHeader
                   avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                      {/* user avatar goes here */}
-                    </Avatar>
+                    <Avatar
+                      sx={{ bgcolor: red[500] }}
+                      aria-label="recipe"
+                    ></Avatar>
                   }
                   title={data.recipe.name}
                 />
                 <CardMedia
                   component="img"
-                  // height="194"
                   className="card-image"
                   image={data.recipe.image}
                   title={data.recipe.name}
@@ -154,7 +149,6 @@ function SearchBar() {
                     <StarsRating
                       count={5}
                       value={data.recipe.rate}
-                      //onChange={ratingChange}
                       size={24}
                       color2={"#ffd700"}
                     />
@@ -162,7 +156,6 @@ function SearchBar() {
                 </CardContent>
 
                 <CardActions disableSpacing>
-                  {/* adding favorites code */}
                   <IconButton
                     aria-label="add to favorites"
                     onClick={() => handleFavoriteClick(data.recipe.name)}
@@ -209,6 +202,7 @@ function SearchBar() {
               </Card>
             </Grid>
           )}
+          {/* ;{error && <h1>There is no result</h1>} */}
         </Grid>
       </Grid>
     </>

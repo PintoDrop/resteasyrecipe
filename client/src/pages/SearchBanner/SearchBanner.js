@@ -21,6 +21,9 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useQuery, useLazyQuery } from "@apollo/client";
 import { QUERY_RECIPE_BY_REGION } from "../../utils/queries";
+import RecipeCard from "../RecipeCard"
+
+
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;

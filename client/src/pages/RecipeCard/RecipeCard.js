@@ -52,8 +52,10 @@ function RecipeCard({ recipe, user }) {
         marginRight: 10,
         marginLeft: 10,
         marginBottom: "20px",
+        marginTop: "30px",
       }}
       key={recipe.name}
+      elevation={8}
     >
       <CardHeader
         avatar={

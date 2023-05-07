@@ -37,25 +37,24 @@ function Recipes() {
   const [expanded, setExpanded] = React.useState(false);
   // favorites code
   const [favorites, setFavorites] = useState([]);
-  
+
   const handleFavoriteClick = (recipeName) => {
     if (favorites.includes(recipeName)) {
       setFavorites(favorites.filter((name) => name !== recipeName));
     } else {
-      setFavorites([...favorites, recipeName])
+      setFavorites([...favorites, recipeName]);
     }
     console.log(favorites);
   };
 
-  const handleExpandClick = () => {
+  const handleExpandClick = (ID) => {
+    // const collapse = docucument.querySelector(`[data-ID=${ID}]`)// change value of expand and in to true/false
     setExpanded(!expanded);
   };
-  
+
   const { loading, data } = useQuery(QUERY_RECIPES);
   const recipes = data?.recipes || [];
-  
-  
-  
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -80,7 +79,7 @@ function Recipes() {
               marginRight: 10,
               marginLeft: 10,
               marginBottom: "20px",
-              marginTop: "50px"
+              marginTop: "50px",
             }}
             key={recipe.name}
           >
@@ -116,12 +115,15 @@ function Recipes() {
 
             <CardActions disableSpacing>
               {/* adding favorites code */}
-              <IconButton aria-label="add to favorites"
-              onClick={() => handleFavoriteClick(recipe.name)}
+              <IconButton
+                aria-label="add to favorites"
+                onClick={() => handleFavoriteClick(recipe.name)}
               >
-
-                <FavoriteIcon  color={favorites.includes(recipe.name) ? "secondary" : "inherit"}/>
-                
+                <FavoriteIcon
+                  color={
+                    favorites.includes(recipe.name) ? "secondary" : "inherit"
+                  }
+                />
               </IconButton>
 
               <ExpandMore
@@ -162,4 +164,3 @@ function Recipes() {
 }
 
 export default Recipes;
-

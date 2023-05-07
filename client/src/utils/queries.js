@@ -38,13 +38,18 @@ export const QUERY_RECIPES = gql`
   }
 `;
 
-
-// added favorites to user.js model
-// need a third call here for recipes that are favorites
-// need a type def for saving favorites
-// need save recipe resolver
-// need queries inside me at favorites - dont need a new querie
-// need save favorite mutation
-// then to favorite pages - reference mern example
-
-// google mern books (save book) for good example.
+export const QUERY_RECIPE_BY_REGION = gql`
+  query Recipe($recipeRegion: String!) {
+    recipe(recipeRegion: $recipeRegion) {
+      _id
+      cookTime
+      description
+      image
+      ingredients
+      instructions
+      name
+      rate
+      region
+    }
+  }
+`;

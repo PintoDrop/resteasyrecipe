@@ -43,20 +43,20 @@
 //     setSelectedRegion(selectedRegion);
 //   };
 
-//   const handleRecipePick = () => {
-//     if (!selectedRegion) {
-//       alert("Please select a region.");
-//       return;
-//     }
+  const handleRecipePick = () => {
+    if (!selectedRegion) {
+      alert("Please select a region.");
+      return;
+    }
     
-//     if (!data) return;
+    if (!data) return;
 
-//     const recipes = data.recipes;
+    const recipes = data.recipes;
 
-//     const filteredRecipes = recipes.filter(
-//       (recipe) =>
-//         recipe.region.toLowerCase() === selectedRegion.toLowerCase()
-//     );
+    const filteredRecipes = recipes.filter(
+      (recipe) =>
+        recipe.region.toLowerCase() === selectedRegion.toLowerCase()
+    );
 
 //     if (filteredRecipes.length === 0) {
 //       alert("No recipes found for the specified region.");
@@ -82,76 +82,42 @@
 //   const recipes = data?.recipes || [];
 //   const regions = Array.from(new Set(recipes.map((recipe) => recipe.region)));
 
-//   // return (
-//   //   <div>
-//   //     <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
-//   //     {showDropdown && (
-//   //       <div>
-//   //         <RegionDropdown
-//   //           regions={regions}
-//   //           onRegionSelected={handleRegionSelected}
-//   //         />
-          
-//   //         <Button onClick></Button>
+  return (
+    <div>
+      <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
+      {showDropdown && (
+        <div>
+          <RegionDropdown
+            regions={regions}
+            onRegionSelected={handleRegionSelected}
+          />
+          <Button onClick={handleRecipePick}>Pick Random Recipe</Button>
+        </div>
+      )}
+      {randomRecipes.length > 0 && (
+        <Grid container spacing={3}>
+          {randomRecipes.map((recipe) => (
+            <Grid item xs={12} sm={6} md={4} key={recipe._id}>
+              <Recipes {...recipe} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+    </div>
+  );
+};
 
-        
-//   //     }
-      
-
-// // export default RandomRecipePicker;
-
-// /* /* 
-
-
-// //   // replace with data from API
-// //   const recipes = ["chicken tacos"];
-// //   const [randoRecipe, setRandoRecipe] = useState();
-
-// /* function RandomRecipePicker() {
-//   // const [recipes, setRecipes] = useState([]);
-//   // const [selectedCookingStyle, setSelectedCookingStyle] = useState("");
-//   // const [randomRecipe, setRandomRecipe] = useState(null);
-
-//   // // filter recipe
-//   // const handlePickRandomRecipe = () => {
-//   //   // filtering the recipe to only "style/region" that we picked
-//   //   const filteredRecipes = recipes.filter(
-//   //     (recipe) => recipe.cookingStyle === selectedCookingStyle
-//   //   );
-//   //   // picking the random recipe
-//   //   const randomIndex = Math.floor(Math.random() * filteredRecipes.length);
-//   //   const randomRecipe = filteredRecipes[randomIndex];
-//   //   // setting the recipe
-//   //   setRandomRecipe(randomRecipe);
-//   // }; */
-
-// /*   const handleClick = () => {
-//       var randomIndex = Math.floor(Math.random() * recipes.length);
-//       setRandoRecipe(recipes[randomIndex]);
-    
-//   }; */
-// //   const randoIndex = Math.floor(math.random() * recipe.length);
-
-// /* return (
-//     <div>
-//       <Grid container justifyContent="center">
-//         <h1>Random Recipe</h1>
-//       </Grid>
-//       <Grid container justifyContent="center">
-//         <Button
-//           variant="contained"
-//           color="success"
-//           onClick={handlePickRandomRecipe}
-//         >
-//           Find Random Recipe
-//         </Button>
-//       </Grid>
-
-//       { </Grid> }
-//       { data rendered needs to go on a card once api is data is functional. Conditional render (if data) }
-//       <Recipes data={randoRecipe} />
-
-//     </div>
-//     // </>
-//   );
-// } */
+//     data
+//
+//
+//
+//
+//
+// render(Recipe)
+//
+//
+//
+//
+//
+//
+//

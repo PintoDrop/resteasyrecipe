@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Recipes from "../Recipes";
+import RecipeCard from "../RecipeCard";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { useQuery } from "@apollo/client";
@@ -96,7 +96,7 @@ const RandomRecipePicker = () => {
         <Grid container spacing={3}>
           {randomRecipes.map((recipe) => (
             <Grid item xs={12} sm={6} md={4} key={recipe._id}>
-              <Recipes {...recipe} />
+              <RecipeCard recipe={recipe}/>
             </Grid>
           ))}
         </Grid>

@@ -22,14 +22,7 @@ function Recipes() {
         {" "}
         All Recipes
       </Typography>
-      {/* <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          width: "100%",
-          flexWrap: "wrap",
-        }}
-      > */}
+
       <Grid 
       display= "flex"
       container padding={4} 
@@ -40,7 +33,6 @@ function Recipes() {
           <RecipeCard recipe={recipe}/>
         ))}
       </Grid>
-      {/* </div> */}
 
 
       </Grid>

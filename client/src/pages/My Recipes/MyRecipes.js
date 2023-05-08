@@ -8,8 +8,6 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 
 
-
-// export default
 function Recipes() {
 
 

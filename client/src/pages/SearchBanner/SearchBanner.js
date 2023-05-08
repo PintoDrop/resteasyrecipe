@@ -21,9 +21,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useQuery, useLazyQuery } from "@apollo/client";
 import { QUERY_RECIPE_BY_REGION } from "../../utils/queries";
-import RecipeCard from "../RecipeCard"
-
-
+import RecipeCard from "../RecipeCard";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -42,7 +40,6 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 function SearchBar() {
   const [expanded, setExpanded] = React.useState(false);
-  // favorites code
   const [favorites, setFavorites] = useState([]);
 
   const handleFavoriteClick = (recipeName) => {
@@ -63,15 +60,12 @@ function SearchBar() {
     setSearchTerm(event.target.value);
   };
 
-  // const onSearch = (searchItem) => {
-  //   console.log("search", searchItem);
-  // };
 
+  const [fetchRecipes, { data, error }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
 
-
-  const [fetchRecipes, { data }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
-
-  // console.log(data.name);
+  if (error) {
+    console.log(error);
+  }
 
 
   return (
@@ -205,7 +199,7 @@ function SearchBar() {
               </Card>
             </Grid>
           )}
-          {/* ;{error && <h1>There is no result</h1>} */}
+          {error && <Grid>There is no result</Grid>}
         </Grid>
       </Grid>
     </>

@@ -121,7 +121,6 @@ function Register() {
               onChange={handleInputChange}
               required
             />
-            {/* <button type="submit">Register User</button> */}
 
             <Stack
               justifyContent="center"

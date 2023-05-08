@@ -68,7 +68,7 @@ function Home({ pageState, setPageState }) {
       login: false,
       create: false,
       favorites: false,
-      search: true,
+      search: false,
       myRecipes: false,
     });
   };
@@ -195,10 +195,10 @@ function Home({ pageState, setPageState }) {
                       <MenuBookTwoToneIcon sx={{ marginRight: "5px" }} />
                       <Typography textAlign="center">My Recipes</Typography>
                     </MenuItem>
-                    <MenuItem onClick={handleOpenFavorites}>
+                    {/* <MenuItem onClick={handleOpenFavorites}>
                       <FavoriteTwoToneIcon sx={{ marginRight: "10px" }} />
                       <Typography textAlign="center">Favorites</Typography>
-                    </MenuItem>
+                    </MenuItem> */}
                     <MenuItem onClick={Auth.logout}>
                       <LogoutTwoToneIcon sx={{ marginRight: "10px" }} />
                       <Typography textAlign="center">Log Out</Typography>

@@ -40,7 +40,6 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 function SearchBar() {
   const [expanded, setExpanded] = React.useState(false);
-  // favorites code
   const [favorites, setFavorites] = useState([]);
 
   const handleFavoriteClick = (recipeName) => {
@@ -61,9 +60,6 @@ function SearchBar() {
     setSearchTerm(event.target.value);
   };
 
-  // const onSearch = (searchItem) => {
-  //   console.log("search", searchItem);
-  // };
 
   const [fetchRecipes, { data, error }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
 
@@ -71,7 +67,6 @@ function SearchBar() {
     console.log(error);
   }
 
-  // console.log(data.name);
 
   return (
     <>

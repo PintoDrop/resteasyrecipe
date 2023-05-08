@@ -116,7 +116,6 @@ function Login() {
               onChange={handleInputChange}
               required
             />
-            {/* <button type="submit">Login User</button> */}
             <Stack
               justifyContent="center"
               direction="row"

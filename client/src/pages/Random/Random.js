@@ -53,7 +53,6 @@ const RandomRecipePicker = () => {
       return;
     }
 
-
     if (!data) return;
     const recipes = data.recipes;
     const filteredRecipes = recipes.filter(
@@ -103,9 +102,8 @@ const RandomRecipePicker = () => {
         )}
       </Grid>
 
-
       {randomRecipes.length > 0 && (
-        <Grid container justifyContent="center" spacing={4} >
+        <Grid container justifyContent="center" spacing={4}>
           {randomRecipes.map((recipe) => (
             <Grid item xs={12} sm={6} md={4} key={recipe._id}>
               <RecipeCard recipe={recipe} />

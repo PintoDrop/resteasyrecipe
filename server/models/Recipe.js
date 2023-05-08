@@ -38,7 +38,8 @@ const recipeSchema = new Schema({
     type:Number,
     required:false,
 
-  }
+  },
+
 });
 const Recipe = model("recipe", recipeSchema);
 

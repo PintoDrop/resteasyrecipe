@@ -49,6 +49,9 @@ GIVEN a recipe blog
 **WHEN I post my own recipes**
 *THEN I am brought to a form where I can enter in the name of the dish, the region of the dish, ingredients, directions, the cook time for the recipe and add pictures of my recipe*
 
+**WHEN I view the 'My Recipes' page**
+*THEN I am able to see all the recipes I have created*
+
 **WHEN I click on the star rating for a recipe**
 *THEN I am able to change the rating of that recipe*
 

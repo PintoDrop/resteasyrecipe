@@ -52,12 +52,6 @@ GIVEN a recipe blog
 **WHEN I click on the star rating for a recipe**
 *THEN I am able to change the rating of that recipe*
 
-**WHEN I see a recipe I like**
-*I am able to favorite it and it is added to my saved recipes*
-
-**WHEN I delete a saved recipe**
-*THEN it is taken off of my saved recipes*
-
 **WHEN I click the random recipe button**
 *THEN I am given options on styles of dishes to choose from*
 
@@ -81,29 +75,3 @@ GIVEN a recipe blog
 ![Home Page Logged in](./client/src/Images/homepage-login.JPG)
 
 ![Create Recipe](./client/src/Images/create.JPG)
-
-
-<!-- 
-getting images to appear on recipe cards - done
-
-adding seeded data to recipe cards?
-
-making a rating for individual recipe (need login info?)
-making a random recipe button
-
-
-need:
-Favorite button
-login in - done
-register/sign up - done
-random recipe
-logout button - done
-image uploader - done
-
-search bar - search by region
-random page 
-
-favorites page - users adding favorites 
-need to update model - recipe (& User?), type defs?
-code on cards for recipe page?
- -->

@@ -94,8 +94,8 @@ function Favorites() {
 
           />
           <CardContent>
-            <Typography variant="body2" color="text.secondary">
               <h2>Description: </h2>
+            <Typography variant="body2" color="text.secondary">
               <p>{recipe.description}</p>
               <StarsRating
                 count={5}

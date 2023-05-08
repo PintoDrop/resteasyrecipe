@@ -139,8 +139,8 @@ function SearchBar() {
                   title={data.recipe.name}
                 />
                 <CardContent>
-                  <Typography variant="body2" color="text.secondary">
                     <h2>Description: </h2>
+                  <Typography variant="body2" color="text.secondary">
                     <p>{data.recipe.description}</p>
 
                     <StarsRating

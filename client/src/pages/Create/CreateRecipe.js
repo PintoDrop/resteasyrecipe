@@ -152,7 +152,7 @@ export const CreateRecipe = () => {
               <Button
                 variant="contained"
                 type="submit"
-                // onClick={(event) => (window.location.href = "/myrecipes")}
+                onClick={(event) => (window.location.href = "/")}
                 style={{ background: "#dd2c00" }}
               >
                 Submit Recipe

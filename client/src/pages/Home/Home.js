@@ -225,6 +225,10 @@ function Home({ pageState, setPageState }) {
                       />
                       <Typography textAlign="center">Create Recipe</Typography>
                     </MenuItem>
+                    <MenuItem onClick={handleOpenMyRecipes}>
+                      <MenuBookTwoToneIcon sx={{ marginRight: "5px" }} />
+                      <Typography textAlign="center">My Recipes</Typography>
+                    </MenuItem>
                     <MenuItem onClick={handleOpenFavorites}>
                       <FavoriteTwoToneIcon sx={{ marginRight: "10px" }} />
                       <Typography textAlign="center">Favorites</Typography>

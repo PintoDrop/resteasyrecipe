@@ -1,9 +1,9 @@
-// import React, { useState } from "react";
-// import Recipes from "../Recipes";
-// import Button from "@mui/material/Button";
-// import Grid from "@mui/material/Grid";
-// import { useQuery } from "@apollo/client";
-// import { QUERY_RECIPES } from "../../utils/queries";
+import React, { useState } from "react";
+import RecipeCard from "../RecipeCard";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import { useQuery } from "@apollo/client";
+import { QUERY_RECIPES } from "../../utils/queries";
 
 // const RegionDropdown = ({ regions, onRegionSelected }) => {
 //   const [selectedRegion, setSelectedRegion] = useState("");
@@ -14,24 +14,28 @@
 //     onRegionSelected(selectedRegion);
 //   };
 
-//   return (
-//     <div>
-//       <label htmlFor="region-dropdown">Select a region: </label>
-//       <select
-//         id="region-dropdown"
-//         value={selectedRegion}
-//         onChange={handleSelectChange}
-//       >
-//         <option value=""> Please select </option>
-//         {regions.map((region) => (
-//           <option key={region} value={region}>
-//             {region}
-//           </option>
-//         ))}
-//       </select>
-//     </div>
-//   );
-// };
+  return (
+    <>
+      <Grid container justifyContent="center">
+        <div>
+          <label htmlFor="region-dropdown">Select a region: </label>
+          <select
+            id="region-dropdown"
+            value={selectedRegion}
+            onChange={handleSelectChange}
+          >
+            <option value=""> Please select </option>
+            {regions.map((region) => (
+              <option key={region} value={region}>
+                {region}
+              </option>
+            ))}
+          </select>
+        </div>
+      </Grid>
+    </>
+  );
+};
 
 // const RandomRecipePicker = () => {
 //   const { loading, data } = useQuery(QUERY_RECIPES);
@@ -82,30 +86,38 @@
 //   const recipes = data?.recipes || [];
 //   const regions = Array.from(new Set(recipes.map((recipe) => recipe.region)));
 
-//   return (
-//     <div>
-//       <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
-//       {showDropdown && (
-//         <div>
-//           <RegionDropdown
-//             regions={regions}
-//             onRegionSelected={handleRegionSelected}
-//           />
-//           <Button onClick={handleRecipePick}>Pick Random Recipe</Button>
-//         </div>
-//       )}
-//       {randomRecipes.length > 0 && (
-//         <Grid container spacing={3}>
-//           {randomRecipes.map((recipe) => (
-//             <Grid item xs={12} sm={6} md={4} key={recipe._id}>
-//               <Recipes {...recipe} />
-//             </Grid>
-//           ))}
-//         </Grid>
-//       )}
-//     </div>
-//   );
-// };
+  return (
+    <>
+      <Grid container justifyContent="center">
+        <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
+      </Grid>
+      <Grid container justifyContent="center" padding={2}>
+        {showDropdown && (
+          <div>
+            <RegionDropdown
+              regions={regions}
+              onRegionSelected={handleRegionSelected}
+            />
+            <Grid container justifyContent="center" padding={2}>
+              <Button onClick={handleRecipePick}>Pick Random Recipe</Button>
+            </Grid>
+          </div>
+        )}
+      </Grid>
+
+
+      {randomRecipes.length > 0 && (
+        <Grid container justifyContent="center" spacing={4} >
+          {randomRecipes.map((recipe) => (
+            <Grid item xs={12} sm={6} md={4} key={recipe._id}>
+              <RecipeCard recipe={recipe} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+    </>
+  );
+};
 
 //     data
 //

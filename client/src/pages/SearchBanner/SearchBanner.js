@@ -21,6 +21,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useQuery, useLazyQuery } from "@apollo/client";
 import { QUERY_RECIPE_BY_REGION } from "../../utils/queries";
+import RecipeCard from "../RecipeCard";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -64,12 +65,13 @@ function SearchBar() {
   //   console.log("search", searchItem);
   // };
 
+  const [fetchRecipes, { data, error }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
 
-
-  const [fetchRecipes, { data }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
+  if (error) {
+    console.log(error);
+  }
 
   // console.log(data.name);
-
 
   return (
     <>
@@ -100,6 +102,7 @@ function SearchBar() {
               onClick={() => {
                 fetchRecipes({ variables: { recipeRegion: searchTerm } });
               }}
+              style={{ background: "#dd2c00" }}
             >
               Search
             </Button>
@@ -201,7 +204,7 @@ function SearchBar() {
               </Card>
             </Grid>
           )}
-          {/* ;{error && <h1>There is no result</h1>} */}
+          {error && <Grid>There is no result</Grid>}
         </Grid>
       </Grid>
     </>

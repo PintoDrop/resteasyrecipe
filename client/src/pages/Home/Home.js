@@ -149,12 +149,12 @@ function Home({ pageState, setPageState }) {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: "#b71c1c" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <MenuBookIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
             <Typography
-              variant="h6"
+              variant="h4"
               noWrap
               component="a"
               href="/"
@@ -224,6 +224,10 @@ function Home({ pageState, setPageState }) {
                         sx={{ marginRight: "10px" }}
                       />
                       <Typography textAlign="center">Create Recipe</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleOpenMyRecipes}>
+                      <MenuBookTwoToneIcon sx={{ marginRight: "5px" }} />
+                      <Typography textAlign="center">My Recipes</Typography>
                     </MenuItem>
                     <MenuItem onClick={handleOpenFavorites}>
                       <FavoriteTwoToneIcon sx={{ marginRight: "10px" }} />

@@ -60,14 +60,12 @@ function RecipeCard({ recipe, user }) {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {/* user avatar goes here */}
           </Avatar>
         }
         title={recipe.name}
       />
       <CardMedia
         component="img"
-        // height="194"
         className="card-image"
         image={recipe.image}
         title={recipe.name}
@@ -80,7 +78,6 @@ function RecipeCard({ recipe, user }) {
           <StarsRating
             count={5}
             value={user ? user.recipes.rate : recipe.rate}
-            //onChange={ratingChange}
             size={24}
             color2={"#ffd700"}
           />

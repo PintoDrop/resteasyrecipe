@@ -12,9 +12,7 @@ import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-// import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import MoreVertIcon from '@mui/icons-material/MoreVert';
 import StarsRating from "stars-rating";
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -32,13 +30,12 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-// export default
+
 function Favorites() {
   const [expanded, setExpanded] = React.useState(false);
   const [rating, setRating] = useState(0);
   const [favoriteRecipes, setFavoriteRecipes] = useState([
 
-    // const [recipes] = useState([
       {
         name: "Chicken Tacos",
         ingredients: "1/2 pound chicken, four bell peppers ",
@@ -62,7 +59,7 @@ function Favorites() {
         image: require("../../Images/appleWalnutSal.jpg").default,
       },
     ]);
-  // ])
+
 
   const ratingChange = (newRating) => {
     setRating(newRating);
@@ -84,39 +81,22 @@ function Favorites() {
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                {/* user avatar goes here */}
+
               </Avatar>
             }
-            // action={
-            //   <IconButton aria-label="settings">
-            //     <MoreVertIcon />
-            //   </IconButton>
-            // }
+
             title={recipe.name}
           />
           <CardMedia
             component="img"
             height="194"
-            // needs to be src not image?
             image={recipe.image}
-            // alt="Paella dish"
+
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
               <h2>Description: </h2>
               <p>{recipe.description}</p>
-
-              {/* <h2>Directions: </h2>
-                <p>{recipe.instructions}</p>
-
-                <h2>Ingredients: </h2>
-                <p>{recipe.ingredients}</p>
-
-                <h3>Cook time: </h3>
-                <p>{recipe.cookTime}</p>
-
-                <h3>Region: </h3>
-                <p>{recipe.region}</p> */}
               <StarsRating
                 count={5}
                 value={rating}
@@ -131,9 +111,7 @@ function Favorites() {
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
             </IconButton>
-            {/* <IconButton aria-label="share">
-                <ShareIcon />
-              </IconButton> */}
+
             <ExpandMore
               expand={expanded}
               onClick={handleExpandClick}
@@ -145,7 +123,6 @@ function Favorites() {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              {/* <Typography paragraph>Method:</Typography> */}
               <Typography paragraph>
                 <h3>Directions: </h3>
                 {recipe.instructions}

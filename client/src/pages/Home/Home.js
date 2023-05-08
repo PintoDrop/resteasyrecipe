@@ -24,35 +24,12 @@ import MenuBookTwoToneIcon from "@mui/icons-material/MenuBookTwoTone";
 import Person2TwoToneIcon from "@mui/icons-material/Person2TwoTone";
 import Auth from "../../utils/auth.js";
 
-// const pages = ["Recipes", "Random", "Login/Register"];
-// const settings = ["Profile", "Create Recipe", "Favorites", "Logout"];
 
 function Home({ pageState, setPageState }) {
-  // const authStatus = localStorage.getItem("auth")
 
-  // const [loginStatus, setLoginStatus] = React.useState(false)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  // const [showButton, setShowButton] = useState(false);
-
-  // useEffect(()=> {
-  //   checkStorage();
-  //   return () => {}
-  // }, [loginStatus])
-
-  // const checkStorage= () => {
-  //   if (localStorage.getItem("loginStatus")) {
-  //     setLoginStatus(true)
-  //   } else {
-  //     setLoginStatus(false)
-  //   }
-  // }
-
-  // const logOut = () => {
-  //   localStorage.removeItem("loginStatus");
-  //   setLoginStatus(false)
-  // }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -69,7 +46,6 @@ function Home({ pageState, setPageState }) {
     setAnchorElUser(null);
   };
 
-  // setLoginStatus(localStorage.getItem("loginStatus"));
 
   const handleOpenRecipes = () => {
     setPageState({
@@ -82,7 +58,6 @@ function Home({ pageState, setPageState }) {
       search: true,
       myRecipes: false,
     });
-    // setLoginStatus(true);
   };
 
   const handleOpenRandom = () => {
@@ -108,7 +83,6 @@ function Home({ pageState, setPageState }) {
       search: false,
       myRecipes: false,
     });
-    // localStorage.setItem("loginStatus", true)
   };
   const handleOpenFavorites = () => {
     setPageState({
@@ -171,10 +145,6 @@ function Home({ pageState, setPageState }) {
               Rest Easy Recipes
             </Typography>
 
-            {/* <Button href="/recipes" variant="contained">
-              Recipes
-            </Button> */}
-
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
@@ -204,11 +174,7 @@ function Home({ pageState, setPageState }) {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                {/* {pages.map((page) => ( */}
 
-                {/* <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem> */}
                 <MenuItem onClick={handleOpenRecipes}>
                   <FastfoodTwoToneIcon sx={{ marginRight: "10px" }} />
                   <Typography textAlign="center">Recipes</Typography>
@@ -245,7 +211,6 @@ function Home({ pageState, setPageState }) {
                   </MenuItem>
                 )}
 
-                {/* ))} */}
               </Menu>
             </Box>
             <MenuBookIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
@@ -268,14 +233,7 @@ function Home({ pageState, setPageState }) {
               Rest Easy Recipes
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {/* {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button> */}
+
 
               <Button
                 onClick={handleOpenRecipes}
@@ -284,7 +242,6 @@ function Home({ pageState, setPageState }) {
                 <FastfoodTwoToneIcon sx={{ marginRight: "5px" }} />
                 Recipes
               </Button>
-              {/* {loginStatus ? ( */}
               {Auth.loggedIn() ? (
                 <>
                   <Button
@@ -310,13 +267,13 @@ function Home({ pageState, setPageState }) {
                     <MenuBookTwoToneIcon sx={{ marginRight: "5px" }} />
                     My Recipes
                   </Button>
-                  <Button
+                  {/* <Button
                     onClick={handleOpenFavorites}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
                     <FavoriteTwoToneIcon sx={{ marginRight: "5px" }} />
                     Favorites
-                  </Button>
+                  </Button> */}
 
                   <Button
                     onClick={Auth.logout}
@@ -335,87 +292,13 @@ function Home({ pageState, setPageState }) {
                   Login/Register
                 </Button>
               )}
-              {/* // <Button */}
-              {/* onClick={handleOpenRandom}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-               Random
-               </Button> */}
-              {/* ) : (<span></span>) */}
 
-              {/* }    */}
-              {/* {!loginStatus ? ( */}
-
-              {/* <Button
-                  onClick={handleOpenLogin}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Login/Register
-                </Button> */}
-              {/* ) : ( */}
-              {/* <span></span> */}
-              {/* )} */}
-
-              {/* ))} */}
             </Box>
 
-            {/* <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Options">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
-            {/* need ${user} and avatar images, avater letter changes with name */}
-            {/* <Avatar alt="Remy" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              > */}
-            {/* {settings.map((setting) => ( */}
-            {/* <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem> */}
-
-            {/* {loginStatus ? ( */}
-            {/* {Auth.loggedIn() ? (
-
-                  <>
-                    <MenuItem onClick={handleOpenCreateRecipe}>
-                      <Typography textAlign="center">Create Recipe</Typography>
-                    </MenuItem>
-                    <MenuItem onClick={handleOpenFavorites}>
-                      <Typography textAlign="center">Favorites</Typography>
-                    </MenuItem>
-                  </>
-                ): (
-
-                    <MenuItem onClick={Auth.logout}>
-                      <Typography textAlign="center">Logout</Typography>
-                    </MenuItem>
-
-                )} */}
-            {/* ) : (
-                  null
-                )} */}
-
-            {/* ))}  */}
-            {/* </Menu>
-            </Box> */}
           </Toolbar>
         </Container>
       </AppBar>
-      {/* <Favorites /> */}
+
     </>
   );
 }

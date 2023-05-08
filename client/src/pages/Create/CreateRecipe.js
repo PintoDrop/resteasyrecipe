@@ -1,4 +1,4 @@
-// export default CreateRecipe;
+
 import { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import InputLabel from "@mui/material/InputLabel";
@@ -57,7 +57,7 @@ export const CreateRecipe = () => {
           ingredients: recipe.ingredients.split("/\r\n/"),
           instructions: recipe.instructions.split("/\r\n/"),
           image: recipe.image,
-          //          image: recipe.image,
+
         },
       });
       console.log(data);

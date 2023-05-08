@@ -14,7 +14,6 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CreateRecipe from "./pages/Create";
 
-// import Register from "./pages/Register";
 import Recipes from "./pages/Recipes";
 import Favorites from "./pages/Favorites";
 import Random from "./pages/Random";
@@ -56,15 +55,6 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        {/* <Router>
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Routes>
-          </div>
-        </Router> */}
 
         <Home pageState={pageState} setPageState={setPageState} />
         {pageState.search ? <SearchBar /> : ""}

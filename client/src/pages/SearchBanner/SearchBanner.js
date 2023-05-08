@@ -21,6 +21,9 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useQuery, useLazyQuery } from "@apollo/client";
 import { QUERY_RECIPE_BY_REGION } from "../../utils/queries";
+import RecipeCard from "../RecipeCard"
+
+
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -64,9 +67,12 @@ function SearchBar() {
   //   console.log("search", searchItem);
   // };
 
+
+
   const [fetchRecipes, { data }] = useLazyQuery(QUERY_RECIPE_BY_REGION);
 
   // console.log(data.name);
+
 
   return (
     <>
@@ -90,24 +96,17 @@ function SearchBar() {
             onChange={handleChange}
             margin="dense"
           />
-          {/* onClick={() => onSearch(searchTerm)} */}
+
           <Grid padding={2}>
             <Button
               variant="contained"
               onClick={() => {
                 fetchRecipes({ variables: { recipeRegion: searchTerm } });
               }}
+              style={{ background: "#dd2c00" }}
             >
               Search
             </Button>
-            {/* <div>
-              {recipeSearched && (
-                <div>
-                  {" "}
-                  <h1> Recipe Name:{recipeSearched.recipe.name}</h1>{" "}
-                </div>
-              )}
-            </div> */}
           </Grid>
         </Grid>
       </Grid>
@@ -132,15 +131,15 @@ function SearchBar() {
               >
                 <CardHeader
                   avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                      {/* user avatar goes here */}
-                    </Avatar>
+                    <Avatar
+                      sx={{ bgcolor: red[500] }}
+                      aria-label="recipe"
+                    ></Avatar>
                   }
                   title={data.recipe.name}
                 />
                 <CardMedia
                   component="img"
-                  // height="194"
                   className="card-image"
                   image={data.recipe.image}
                   title={data.recipe.name}
@@ -153,7 +152,6 @@ function SearchBar() {
                     <StarsRating
                       count={5}
                       value={data.recipe.rate}
-                      //onChange={ratingChange}
                       size={24}
                       color2={"#ffd700"}
                     />
@@ -161,7 +159,6 @@ function SearchBar() {
                 </CardContent>
 
                 <CardActions disableSpacing>
-                  {/* adding favorites code */}
                   <IconButton
                     aria-label="add to favorites"
                     onClick={() => handleFavoriteClick(data.recipe.name)}
@@ -208,6 +205,7 @@ function SearchBar() {
               </Card>
             </Grid>
           )}
+          {/* ;{error && <h1>There is no result</h1>} */}
         </Grid>
       </Grid>
     </>

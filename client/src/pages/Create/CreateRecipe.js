@@ -1,5 +1,5 @@
 // export default CreateRecipe;
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
@@ -7,8 +7,14 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { useMutation } from "@apollo/client";
 import { CREATE_RECIPE } from "../../utils/mutations";
+import { useNavigate } from "react-router-dom";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+import Paper from "@mui/material/Paper";
+
 
 export const CreateRecipe = () => {
+
   const [recipe, setRecipe] = useState({
     name: "",
     region: "",
@@ -36,6 +42,8 @@ export const CreateRecipe = () => {
 
   const [createRecipe] = useMutation(CREATE_RECIPE);
 
+   
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(recipe);
@@ -43,7 +51,7 @@ export const CreateRecipe = () => {
       const { data } = await createRecipe({
         variables: {
           name: recipe.name,
-          region: recipe.region,
+          region: recipe.region.toLowerCase(),
           description: recipe.description,
           cookTime: parseInt(recipe.cookTime),
           ingredients: recipe.ingredients.split("/\r\n/"),
@@ -73,6 +81,7 @@ export const CreateRecipe = () => {
               name="name"
               onChange={handleChange}
               fullWidth
+              required
             />
 
             <InputLabel htmlFor="region">Region</InputLabel>
@@ -82,6 +91,7 @@ export const CreateRecipe = () => {
               name="region"
               onChange={handleChange}
               fullWidth
+              required
             />
 
             <InputLabel htmlFor="description">Description</InputLabel>
@@ -91,6 +101,7 @@ export const CreateRecipe = () => {
               multiline
               onChange={handleChange}
               fullWidth
+              required
             />
 
             <InputLabel htmlFor="cookTime">Cook Time (minutes) </InputLabel>
@@ -100,6 +111,7 @@ export const CreateRecipe = () => {
               name="cookTime"
               fullWidth
               onChange={handleChange}
+              required
             />
 
             <InputLabel htmlFor="ingredients">Ingredients</InputLabel>
@@ -109,6 +121,7 @@ export const CreateRecipe = () => {
               onChange={handleChange}
               fullWidth
               multiline
+              required
             />
 
             <InputLabel htmlFor="instructions">Instructions</InputLabel>
@@ -118,6 +131,7 @@ export const CreateRecipe = () => {
               onChange={handleChange}
               fullWidth
               multiline
+              required
             />
             <InputLabel htmlFor="image">Image</InputLabel>
             <TextField
@@ -126,6 +140,7 @@ export const CreateRecipe = () => {
               onChange={handleChange}
               fullWidth
               multiline
+              required
             />
 
             <Stack
@@ -138,6 +153,7 @@ export const CreateRecipe = () => {
                 variant="contained"
                 type="submit"
                 onClick={(event) => (window.location.href = "/myrecipes")}
+                style={{ background: "#dd2c00" }}
               >
                 Submit Recipe
               </Button>

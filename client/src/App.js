@@ -65,6 +65,7 @@ function App() {
             </Routes>
           </div>
         </Router> */}
+
         <Home pageState={pageState} setPageState={setPageState} />
         {pageState.search ? <SearchBar /> : ""}
         {pageState.recipes ? <Recipes /> : ""}

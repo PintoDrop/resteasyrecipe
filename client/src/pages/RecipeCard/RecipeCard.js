@@ -71,8 +71,8 @@ function RecipeCard({ recipe, user }) {
         title={recipe.name}
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
           <h2>Description: </h2>
+        <div variant="body2" color="text.secondary">
           <p>{recipe.description}</p>
 
           <StarsRating
@@ -81,7 +81,7 @@ function RecipeCard({ recipe, user }) {
             size={24}
             color2={"#ffd700"}
           />
-        </Typography>
+        </div>
       </CardContent>
 
       <CardActions disableSpacing>

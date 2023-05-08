@@ -43,20 +43,20 @@
 //     setSelectedRegion(selectedRegion);
 //   };
 
-  const handleRecipePick = () => {
-    if (!selectedRegion) {
-      alert("Please select a region.");
-      return;
-    }
+  // const handleRecipePick = () => {
+  //   if (!selectedRegion) {
+  //     alert("Please select a region.");
+  //     return;
+  //   }
     
-    if (!data) return;
+  //   if (!data) return;
 
-    const recipes = data.recipes;
+  //   const recipes = data.recipes;
 
-    const filteredRecipes = recipes.filter(
-      (recipe) =>
-        recipe.region.toLowerCase() === selectedRegion.toLowerCase()
-    );
+  //   const filteredRecipes = recipes.filter(
+  //     (recipe) =>
+  //       recipe.region.toLowerCase() === selectedRegion.toLowerCase()
+  //   );
 
 //     if (filteredRecipes.length === 0) {
 //       alert("No recipes found for the specified region.");
@@ -82,30 +82,30 @@
 //   const recipes = data?.recipes || [];
 //   const regions = Array.from(new Set(recipes.map((recipe) => recipe.region)));
 
-  return (
-    <div>
-      <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
-      {showDropdown && (
-        <div>
-          <RegionDropdown
-            regions={regions}
-            onRegionSelected={handleRegionSelected}
-          />
-          <Button onClick={handleRecipePick}>Pick Random Recipe</Button>
-        </div>
-      )}
-      {randomRecipes.length > 0 && (
-        <Grid container spacing={3}>
-          {randomRecipes.map((recipe) => (
-            <Grid item xs={12} sm={6} md={4} key={recipe._id}>
-              <Recipes {...recipe} />
-            </Grid>
-          ))}
-        </Grid>
-      )}
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <Button onClick={() => setShowDropdown(true)}>Get Random Recipe</Button>
+//       {showDropdown && (
+//         <div>
+//           <RegionDropdown
+//             regions={regions}
+//             onRegionSelected={handleRegionSelected}
+//           />
+//           <Button onClick={handleRecipePick}>Pick Random Recipe</Button>
+//         </div>
+//       )}
+//       {randomRecipes.length > 0 && (
+//         <Grid container spacing={3}>
+//           {randomRecipes.map((recipe) => (
+//             <Grid item xs={12} sm={6} md={4} key={recipe._id}>
+//               <Recipes {...recipe} />
+//             </Grid>
+//           ))}
+//         </Grid>
+//       )}
+//     </div>
+//   );
+// };
 
 //     data
 //

@@ -27,7 +27,7 @@ function Recipes() {
         {" "}
         {user.name}'s Recipes
       </Typography>
-      
+
       <div
         style={{
           display: "flex",
@@ -37,7 +37,7 @@ function Recipes() {
         }}
       >
         {user.recipes.map((recipe) => (
-         <RecipeCard recipe={recipe} user={user}/>
+          <RecipeCard key={recipe._id} recipe={recipe} user={user} />
         ))}
       </div>
     </>

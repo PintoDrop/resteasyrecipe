@@ -16,25 +16,23 @@ function Recipes() {
   }
   return (
     <>
-      <Grid container spacing={3} justifyContent="center"> 
+      <Grid container spacing={3} justifyContent="center">
+        <Typography marginTop="30px" variant="h3" align="center">
+          {" "}
+          All Recipes
+        </Typography>
 
-      <Typography marginTop="30px" variant="h3" align="center" >
-        {" "}
-        All Recipes
-      </Typography>
-
-      <Grid 
-      display= "flex"
-      container padding={4} 
-      justifyContent="center"
-      flexWrap="wrap"
-      >
-        {recipes.map((recipe) => (
-          <RecipeCard recipe={recipe}/>
-        ))}
-      </Grid>
-
-
+        <Grid
+          display="flex"
+          container
+          padding={4}
+          justifyContent="center"
+          flexWrap="wrap"
+        >
+          {recipes.map((recipe) => (
+            <RecipeCard key={recipe._id} recipe={recipe} />
+          ))}
+        </Grid>
       </Grid>
     </>
   );
